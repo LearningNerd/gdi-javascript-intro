@@ -2,6 +2,8 @@
 
 Work in progress slides for updated Intro to JavaScript class for Girl Develop It Los Angeles
 
+Organizing next to-dos and bugs etc at https://github.com/LearningNerd/gdi-javascript-intro/issues
+
 ## Project Ideas
 
 - Mad Libs (could just use string variables and prompt() for user input)
