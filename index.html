@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Introduction to JavaScript - Girl Develop It LA</title>
+
+		<meta name="description" content="Girl Develop It LA Intro to JavaScript class">
+		<meta name="author" content="Liz Krane and Daniel De La Rosa for Girl Develop It LA">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/simple.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<!-- light editor --><link rel="stylesheet" href="lib/css/light.css">
+		<!-- dark editor <link rel="stylesheet" href="lib/css/dark.css">-->
+		<!-- <link rel="stylesheet" href="lib/css/zenburn.css"> -->
+
+		<link rel="stylesheet" href="plugin/accessibility-helper/css/accessibility-helper.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+		<!-- If use the PDF print sheet so students can print slides-->
+		<link rel="stylesheet" href="css/print/pdf.css" type="text/css" media="print">
+
+		<link rel="icon" type="image/x-icon" href="favicon.ico" />
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+			<div class="slides">
+
+				<section>
+					<img src="img/circle-gdi-logo.png" alt="GDI Logo" class="noborder" style="margin:0;" />
+					<h1 style="line-height:1.1em; margin-top:0;margin-bottom:60px;">Introduction to JavaScript</h1>
+
+					<p style="margin-top:10px;">
+						<small>Slides by <a href="https://learningnerd.com">Liz Krane</a> and <a href="https://github.com/dela1000">Daniel De La Rosa</a></small>
+					</p>
+				</section>
+
+					<section>
+						<h2>Slide content here!</h2>
+					</section>
+
+				<section>
+					<h3 style="margin-bottom: 30px;">How to open your web browser's JavaScript console</h3>
+					<ul>
+						<li><strong>Chrome:</strong>
+							<ul><li style="margin-top:20px;">
+								<strong><em>Windows:</em></strong> Ctrl + Shift + <strong>J</strong>
+							</li>
+							<li>
+								<strong><em>Mac:</em></strong> Cmd + Opt + <strong>J</strong>
+							</li>
+							</ul>
+						</li>
+						<li><strong>Firefox:</strong>
+							<ul><li style="margin-top:20px;">
+								<strong><em>Windows:</em></strong> Ctrl + Shift + <strong>K</strong>
+							</li>
+							<li>
+								<strong><em>Mac:</em></strong> Cmd + Opt + <strong>K</strong>
+							</li>
+							</ul></li>
+						<li><strong>Safari / <em>Mac:</em></strong> Cmd + Opt + <strong>C</strong>
+							<ul><li style="margin-top:20px;">
+								<em>Note: first you may need to enable web inspector (<a href="https://developer.apple.com/library/mac/documentation/AppleApplications/Conceptual/Safari_Developer_Guide/GettingStarted/GettingStarted.html">see instructions here</a>)</em>
+							</li></ul>
+						</li>
+					</ul>
+				</section>
+
+
+			</div>
+  		<footer>
+        <div class="copyright">
+          Intro to JavaScript -- Girl Develop It Los Angeles -- Slides by Liz Krane and Daniel De La Rosa -- 
+          <a rel="license" href="https://creativecommons.org/licenses/by-nc/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>
+        </div>
+      </footer>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+
+
+		<script>
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+                    { src: 'plugin/accessibility-helper/js/accessibility-helper.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
