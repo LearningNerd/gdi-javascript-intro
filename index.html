@@ -54,43 +54,202 @@
 					</p>
 				</section>
 
-					<section>
-						<h2>Slide content here!</h2>
-					</section>
+<section>
+	<h2>The "rules", from GDI slides</h2>
+</section>
 
-				<section>
-					<h3 style="margin-bottom: 30px;">How to open your web browser's JavaScript console</h3>
-					<ul>
-						<li><strong>Chrome:</strong>
-							<ul><li style="margin-top:20px;">
-								<strong><em>Windows:</em></strong> Ctrl + Shift + <strong>J</strong>
-							</li>
-							<li>
-								<strong><em>Mac:</em></strong> Cmd + Opt + <strong>J</strong>
-							</li>
-							</ul>
-						</li>
-						<li><strong>Firefox:</strong>
-							<ul><li style="margin-top:20px;">
-								<strong><em>Windows:</em></strong> Ctrl + Shift + <strong>K</strong>
-							</li>
-							<li>
-								<strong><em>Mac:</em></strong> Cmd + Opt + <strong>K</strong>
-							</li>
-							</ul></li>
-						<li><strong>Safari / <em>Mac:</em></strong> Cmd + Opt + <strong>C</strong>
-							<ul><li style="margin-top:20px;">
-								<em>Note: first you may need to enable web inspector (<a href="https://developer.apple.com/library/mac/documentation/AppleApplications/Conceptual/Safari_Developer_Guide/GettingStarted/GettingStarted.html">see instructions here</a>)</em>
-							</li></ul>
-						</li>
-					</ul>
-				</section>
+<section>
+	<h2>Everyone introduce themselves - why they want ot learn JS, ect</h2>
+</section>
 
+<section>
+	<h2>Quick overview of JS, maybe show a demo, why it's so popular and useful</h2>
+</section>
+<section>
+	<h2>MADLIBS</h2>
+	<p>what are they??</p>
+	<p>https://en.wikipedia.org/wiki/Mad_Libs</p>
+	<pre>
+	"_____________! he said ________ as he jumped into his convertible
+	   exclamation            adverb
+	______ and drove off with his __________ wife."
+	noun                          adjective
+	</pre>
+</section>
+
+<section>
+	SHOW a finished mad lib app! :)
+</section>
+<section>
+	<h3 style="margin-bottom: 30px;">How to open your web browser's JavaScript console</h3>
+	<ul>
+		<li><strong>Chrome:</strong>
+			<ul><li style="margin-top:20px;">
+				<strong><em>Windows:</em></strong> Ctrl + Shift + <strong>J</strong>
+			</li>
+			<li>
+				<strong><em>Mac:</em></strong> Cmd + Opt + <strong>J</strong>
+			</li>
+			</ul>
+		</li>
+		<li><strong>Firefox:</strong>
+			<ul><li style="margin-top:20px;">
+				<strong><em>Windows:</em></strong> Ctrl + Shift + <strong>K</strong>
+			</li>
+			<li>
+				<strong><em>Mac:</em></strong> Cmd + Opt + <strong>K</strong>
+			</li>
+			</ul></li>
+		<li><strong>Safari / <em>Mac:</em></strong> Cmd + Opt + <strong>C</strong>
+			<ul><li style="margin-top:20px;">
+				<em>Note: first you may need to enable web inspector (<a href="https://developer.apple.com/library/mac/documentation/AppleApplications/Conceptual/Safari_Developer_Guide/GettingStarted/GettingStarted.html">see instructions here</a>)</em>
+			</li></ul>
+		</li>
+	</ul>
+</section>
+<section>
+	<h2>VARIABLES</h2>
+	<p>What is a variable? (A piece of information that can change over time)</p>
+	<pre><code class="javascript" data-trim contenteditable="">
+var myName = 'Ms Awesome';
+	</code></pre>
+	<p>Copy and paste that into your console, hit enter to run the code. Then type "myName" and hit enter.</p>
+	<p>NOTE: we show that on the projector in the console too</p>
+</section>
+
+<section>
+	MAIN POINTS:
+	- can contain different kinds of values, or none at all (undefined)
+	- variable can be named almost anything **maybe mention rules? http://girldevelopit.github.io/gdi-featured-js-intro/class1.html#/14
+	- names are CASE SENSITIVE
+	- no spaces
+	- when you make a new variable, define it with "var"
+</section>
+
+<section>
+	<h2>Creating New Variables</h2>
+	<p>Variables can be created with no value (undefined), or with a value:</p>
+	<pre><code class="javascript" data-trim contenteditable="">
+var hometown;
+var favoriteColor = 'blue';
+	</code></pre>
+</section>
+
+<section>
+	<h2>Changing the Value of a Variable</h2>
+	<pre><code class="javascript" data-trim contenteditable="">
+var favoriteFood = 'burgers';
+favoriteFood = 'pizza';
+	</code></pre>
+	<p>Try it yourself in your console!</p>
+</section>
+
+<section>
+	<h2>Variable Types: Strings, numbers, etc</h2>
+	<pre><code class="javascript" data-trim contenteditable="">
+var verb = 'running';
+var number = 3;
+	</code></pre>
+	<p>Plus more, which we'll talk about later!</p>
+</section>
+
+<section>
+	<h2>A couple notes about strings</h2>
+	<p>Strings are always surrounded by quote marks, can be ' ' or " "</p>
+	<p>***other important string things here? </p>
+</section>
+
+<section>
+	<h2>Connecting Strings Together</h2>
+	<p>Fancy name for it: concatenation!</p>
+	<pre><code class="javascript" data-trim contenteditable="">
+var sentence = 'My name is ' + myName + ' and I rock!';
+	</code></pre>
+	<p>Now type "sentence" and hit enter, and you'll see the output: I am a penguin and I rock!</p>
+</section>
+
+<section>
+	<p>Now copy all of this code and run it in your console!</p>
+	<pre><code class="javascript" data-trim contenteditable="">
+var MadLib = exclamation + '! he said ' + adverb + ' as he jumped into his convertible ' + noun + ' and drove off with his ' + adjective + ' wife.'
+	</code></pre>
+	<p>NOTE: point out that previous vars were saved in memory. that's why we don't have to define them again.</p>
+	<p>TODO: different madlib using all previous variables from examples</p>
+</section>
+
+<section>
+	<h1>Working with JavaScript Files</h1>
+</section>
+
+<section>
+	- make a folder called madlibs
+	- create an HTML file, index.html
+	- create a JS file, madlibs.js
+	- point out it's best to keep them in the same folder
+</section>
+
+<section>
+	<h2>How to Link Your JavaScript file to your HTML file</h2>
+<p>Copy this into your index.html file:</p>
+<pre><code class="html" data-trim contenteditable="">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Mad Libs!&lt;/title&gt;
+    &lt;script src=&quot;madlibs.js&quot;&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+</section>
+
+<section>
+	<h2>Your First Function: Console.log</h2>
+<pre><code class="javascript" data-trim contenteditable="">
+console.log('Hello world!');
+var myName = 'blah';
+console.log(myName);
+</code></pre>
+	<p>more on functions later!</p>
+	<p>paste this into your javascript file, save it, and then open your html file in the browser.
+		 check the console - you should see "Hello world!"</p>
+</section>
+
+<section>
+	<p>REVEIW: paste this code into your JS file and then find the errors and fix them it:</p>
+<pre><code class="javascript" data-trim contenteditable="">
+var place = '';
+var noun;
+
+var madLib = 'At the ' + place + ' there was a loud ' + noun + ' and everyone started to ' +  + 'incontrollably.';
+
+console.log(madLib);
+</code></pre>
+</section>
+
+<section>
+	<h2>How to use JS to put stuff into the HTML page</h2>
+	<p>show document.innerHTML -- more on it later</p>
+	<p>NOTE: should we use innerHTML or textContent or others??</p>
+</section>
+
+<section>
+	
+</section>
+
+<section>
+	<p>NEXT:</p>
+	- if/else and boolean values
+	- functions -- defining a new function, parameters, return statement
+	- document.getElementById
+	-
+</section>
 
 			</div>
   		<footer>
         <div class="copyright">
-          Intro to JavaScript -- Girl Develop It Los Angeles -- Slides by Liz Krane and Daniel De La Rosa -- 
+          Intro to JavaScript -- Girl Develop It Los Angeles -- Slides by Liz Krane and Daniel De La Rosa --
           <a rel="license" href="https://creativecommons.org/licenses/by-nc/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>
         </div>
       </footer>

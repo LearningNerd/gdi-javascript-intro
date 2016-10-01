@@ -1,0 +1,9 @@
+{
+  "name": "gulp-test",
+  "version": "0.1.0",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-file-include": "^0.14.0"
+  }
+}
