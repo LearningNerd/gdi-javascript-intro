@@ -1,6 +1,7 @@
-var MadLib = exclamation + '! he said ' + adverb + ' as he jumped into his convertible '
- + noun + ' and drove off with his ' +   + ' wife.'
+var MadLib = 'At the ' + place + ' there was a loud ' + noun + ' and everyone started to ' +  + 'incontrollably.';
 
-var exclamation = '';
-var adverb = '';
+var place = '';
+var noun;
+
+
 // I need a noun and one more variable
