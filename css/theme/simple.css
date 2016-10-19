@@ -48,11 +48,13 @@ body {
   background: rgba(0, 0, 0, 0.99);
   text-shadow: none; }
 
-.blue {color:#00A9B4;}
-.green {color: #92BB44;}
-.orange {color: #EDAB23;}
-.left {float: left;}
-.right {float: right;}
+.reveal .bold {font-weight: bold;}
+
+.reveal .blue {color:#00A9B4;}
+.reveal .green {color: #92BB44;}
+.reveal .orange {color: #EDAB23;}
+.reveal .left {float: left;}
+.reveal .right {float: right;}
 
 div.halfblock{
 	float: left;
@@ -67,7 +69,44 @@ div.left-align{
 	clear: both;}
 
 .reveal ul li, .reveal ol li {
+	margin-bottom:40px;
+}
+
+.reveal ul.less-margin li, .reveal ol.less-margin li {
 	margin-bottom:20px;
+}
+
+.reveal ul.medium-margin li, .reveal ol.medium-margin li {
+	margin-bottom:30px;
+}
+
+.reveal ul.no-margin li, .reveal ol.no-margin li {
+	margin-bottom:0;
+}
+
+.reveal pre {
+	padding: 15px;
+	margin-top: 40px;
+	margin-bottom: 40px;
+	font-size: 0.7em;
+}
+
+.reveal .big, .reveal pre.big {
+	font-size: 1.2em;
+}
+
+.reveal .small {
+	font-size: 0.85em;
+}
+
+.reveal cite {
+	font-size: 0.5em;
+	font-style: italic;
+}
+
+.reveal .nomargin {
+	margin-top: 0;
+	margin-bottom: 0;
 }
 
 /* Using "current-visible overlay" or "fade-out overlay"
@@ -88,6 +127,10 @@ div.left-align{
     height:0px;
     line-height: 0px;
     font-size: 0px;
+}
+
+.reveal .slides section .fragment.highlight-current-blue.current-fragment a {
+	color: #1b91ff;
 }
 
 /*********************************************
@@ -151,7 +194,7 @@ div.left-align{
   -o-transition: all .2s linear;
   transition: all .2s linear;
   max-height: 500px;
-  max-width: 80%;}
+  max-width: 100%;}
 
 .reveal a:hover img {
   background: rgba(255, 255, 255, 0.2);

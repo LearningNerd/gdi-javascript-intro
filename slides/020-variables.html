@@ -1,84 +1,44 @@
 <section>
-	<h2>VARIABLES</h2>
-	<p>What is a variable?</p>
-	<p>A variable is a piece of information that can change over time</p>
-	<pre><code class="javascript" data-trim contenteditable="">
-		var myName = 'Ms Awesome';
+	<h2>So what are variables?</h2>
+	<p>A variable is a symbolic name for a piece of information that can change over time.</p>
+	<pre><code class="javascript big" data-trim contenteditable="">
+		var myName = 'Sally Awesomepants';
 	</code></pre>
-	<p>Copy and paste that into your console, hit enter to run the code. Then type "myName" and hit enter.</p>
-	<p>NOTE: we show that on the projector in the console too</p>
+	<p>Try it out! Copy and paste this code into your console. To run your code, hit enter.</p>
+	<!--
+		VERBAL instructions:
+		- note that now it's saved in memory, even if it hasn't done anything with the var yet!
+		- then try running "myName" and it will print it back out for you
+	-->
 </section>
 
 <section>
-	<h2>Things to know about variables:</h2>
+	<h2 style="font-size:1.5em;">Important notes on variables:</h2>
 	<ul>
-		<li>When you make a new variable, define it with "var" written before it.</li>
-		<li>They can contain different kinds of values, or none at all (undefined).</li>
-		<li>A new variable needs to have a unique name.</li>
-		<li>Variable can be named <b>almost</b> anything.</li>
-		<li>Variable names are CASE SENSITIVE and cannot have spaces.</li>
+		<li class="fragment highlight-current-blue">Use the <code>var</code> keyword to define a <em>new</em> variable</li>
+		<li class="fragment highlight-current-blue">New variables need to have unique names</li>
+		<li class="fragment highlight-current-blue">Variable names are CASE SENSITIVE, cannot contain spaces, and cannot begin with numbers</li>
+		<li class="fragment highlight-current-blue">Bonus link: <a href="http://stackoverflow.com/questions/1661197/what-characters-are-valid-for-javascript-variable-names" target="_blank">"What characters are valid for JavaScript variable names?" (the answer might surprise you!)</a></li>
 	</ul>
 </section>
 
 <section>
-	<h2>Creating New Variables</h2>
-	<p>Variables can be created with no value (undefined), or with a value:</p>
-	<pre><code class="javascript" data-trim contenteditable="">
-var favoriteAnimal;
-var favoriteColor = 'blue';
+	<h2>Creating new variables</h2>
+	<p>Variables can be created with an initial value or without any value at all (<code>undefined</code>):</p>
+	<pre><code class="javascript big" data-trim contenteditable="">
+var favoriteAnimal = 'penguin';
+var favoriteColor;
 	</code></pre>
+	<p>Try it out! Run this code, then type each variable name (don't forget to press "enter"!) and the console will show their values.</p>
 </section>
 
 <section>
-	<h2>Changing the Value of a Variable</h2>
-	<pre><code class="javascript" data-trim contenteditable="">
-var favoriteFood = 'burgers';
+	<h2 style="font-size:1.5em;">Changing the value of a variable</h2>
+	<p>After a variable has been created, you can change it <em>without</em> using the <code>var</code> keyword:
+	<pre><code class="javascript big" data-trim contenteditable="">
+var favoriteFood = 'salad';
+// Actually, I changed my mind!
 favoriteFood = 'pizza';
 	</code></pre>
-	<p>Try it yourself in your console!</p>
-</section>
-
-<section>
-	<h2>Variables are saved to memory</h2>
-	<pre><code class="javascript" data-trim contenteditable="">
-		favoriteAnimal = "penguin";
-	</code></pre>
-	<p>Try it yourself in your console!</p>
-</section>
-
-<section>
-	<h2>Variable Types: Strings, numbers, etc</h2>
-	<pre><code class="javascript" data-trim contenteditable="">
-var verb = 'running';
-var number = 3;
-	</code></pre>
-	<p>Plus more, which we'll talk about later!</p>
-</section>
-
-<section>
-	<h2>A couple notes about strings</h2>
-	<ul>
-		<li>Strings are always surrounded by quote marks such as <b>' '</b> or <b>" "</b></li>
-		<li>A number within a string is not a number, it is text, thus part of the string</li>
-	</ul>
-
-	<p>***other important string things here? </p>
-</section>
-
-<section>
-	<h2>Connecting Strings Together</h2>
-	<p>Fancy name for it: concatenation!</p>
-	<pre><code class="javascript" data-trim contenteditable="">
-		var sentence = 'My name is ' + myName + ' and I rock!';
-	</code></pre>
-	<p>Now type "sentence" and hit enter, and you'll see the output: <b>I am a penguin and I rock!</b></p>
-</section>
-
-<section>
-	<p>Now copy all of this code and run it in your console!</p>
-	<pre><code class="javascript" data-trim contenteditable="">
-var madLibs = "I got home yesterday and say a " + favoriteAnimal + " eating " + favoriteFood + " on my dining table. I asked the " + favoriteAnimal + " what was going on, but it blinked at me " + number + " times, and left " + verb + " away"
-	</code></pre>
-	<p>NOTE: point out that previous vars were saved in memory. that's why we don't have to define them again.</p>
-	<p>TODO: different madlib using all previous variables from examples</p>
+	<p>Try it yourself in the console!</p>
 </section>

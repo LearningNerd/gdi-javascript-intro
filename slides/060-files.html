@@ -1,0 +1,134 @@
+<section>
+	<h1>JavaScript Files</h1>
+</section>
+
+<section>
+	<h2 style="font-size:1.5em;">Let's set up our project</h2>
+	<ol class="medium-margin">
+		<li>Create a new folder named <code>madlibs</code> somewhere easy to find (like on your Desktop)</li>
+		<li>Open up your text editor (like <a href="https://atom.io/" target="_blank">Atom</a> or <a href="https://www.sublimetext.com/" target="_blank">Sublime</a>)</li>
+		<li>Create a new HTML file called <code>index.html</code> and save it in your madlibs folder</li>
+		<li>Create a new CSS file called <code>style.css</code> and save it in your madlibs folder</li>
+		<li>Create a new JavaScript file called <code>madlibs.js</code> and save it in your madlibs folder</li>
+	</ol>
+</section>
+
+<section>
+	<h2  style="font-size:1.5em;">Copy this into your index.html file:</h2>
+<pre style="font-size:0.5em;"><code class="html" data-trim contenteditable="">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&Tab;&lt;head&gt;
+&Tab;&Tab;&lt;title&gt;Mad Libs! (Girl Develop It LA - Intro to JavaScript)&lt;/title&gt;
+&Tab;&Tab;&lt;meta charset=&quot;utf-8&quot;&gt;
+&Tab;&Tab;&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot;&gt;
+&Tab;&Tab;&lt;link href=&quot;style.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;
+&Tab;&Tab;&lt;link href=&quot;https://fonts.googleapis.com/css?family=Waiting+for+the+Sunrise&quot; rel=&quot;stylesheet&quot;&gt;
+&Tab;&lt;/head&gt;
+
+&Tab;&lt;body&gt;
+&Tab;&Tab;&lt;h1&gt;Mad Libs!&lt;/h1&gt;
+
+&Tab;&Tab;&lt;div id=&quot;madlib&quot;&gt;&lt;/div&gt;
+
+&Tab;&Tab;&lt;strong&gt;Noun&lt;/strong&gt; (ex: tree, person): &lt;input type=&quot;text&quot; id=&quot;noun&quot; class=&quot;fill&quot;&gt;
+&Tab;&Tab;&lt;strong&gt;Past Tense Verb&lt;/strong&gt; (ex: jumped, ate): &lt;input type=&quot;text&quot; id=&quot;verb&quot; class=&quot;fill&quot;&gt;
+&Tab;&Tab;&lt;strong&gt;Adjective&lt;/strong&gt; (ex: happy, purple): &lt;input type=&quot;text&quot; id=&quot;adjective&quot; class=&quot;fill&quot;&gt;
+
+&Tab;&Tab;&lt;button id=&quot;submit&quot;&gt;Create Mad Lib&lt;/button&gt;
+
+&Tab;&Tab;&lt;p class=&quot;small&quot;&gt;Based on a practice project from &lt;a href=&quot;https://dash.generalassemb.ly/&quot;&gt;Dash by General Assembly&lt;/a&gt;&lt;/p&gt;
+
+&Tab;&Tab;&lt;script src=&quot;madlibs.js&quot;&gt;&lt;/script&gt;
+&Tab;&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+</section>
+
+<section>
+	<h2 style="font-size:1.5em;">Copy this into your style.css file:</h2>
+<pre style="font-size:0.5em;"><code class="css" data-trim contenteditable="">
+body {
+	font-family: 'Helvetica', 'Arial', sans-serif;
+	margin: 0 auto;
+	text-align: center;
+	padding: 0 20px;
+	max-width: 800px;
+	font-size: 25px;
+	background: #efefef;
+}
+
+button {
+	font-size: 25px;
+	font-weight: bold;
+	padding: 10px;
+	margin: 10px;
+}
+
+input.fill {
+	display: block;
+	width: 400px;
+	max-width:95%;
+	margin:0 auto;
+	margin-bottom: 20px;
+	box-sizing: border-box;
+}
+
+.fill {
+	font-size: 30px;
+	font-weight: bold;
+	font-family: 'Waiting for the Sunrise', cursive;
+	letter-spacing: 5px;
+	background: white;
+	color: red;
+	margin-left: 4px;
+	margin-right: 4px;
+	padding: 5px 15px;
+}
+
+#madlib {
+	font-size: 30px;
+	line-height: 2.5;
+	margin-top: 20px;
+	margin-bottom: 40px;
+}
+
+h1 {
+	font-size: 80px;
+	margin: 0;
+	color: red;
+	font-family: 'Waiting for the Sunrise', cursive;
+	font-weight: bold;
+	letter-spacing: 7px;
+}
+
+.small {
+	font-size:0.5em;
+	font-style: italic;
+	margin-top: 30px;
+}
+</code></pre>
+</section>
+
+<section>
+	<h2 style="font-size:1.4em;">How to link your JS and HTML files</h2>
+
+	<p class="small">In our HTML file, we use the <code>&lt;script&gt;</code> tag with the <code>src</code> attribute at the end of the <code>body</code> element to link it with our JavaScript file:</p>
+
+<pre style="font-size:0.6em;"><code class="html" data-trim contenteditable="">
+	&lt;html&gt;
+&lt;!DOCTYPE html&gt;
+&Tab;&lt;head&gt;
+		<!-- other HTML here -->
+&Tab;&lt;/head&gt;
+&Tab;&lt;body&gt;
+		<!-- and more HTML here -->
+
+&Tab;&Tab;&lt;script src=&quot;madlibs.js&quot;&gt;&lt;/script&gt;
+&Tab;&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+	<p class="small">Note that here we assume <code>madlibs.js</code> is in the same folder as the HTML file that's linking it.</p>
+
+</section>

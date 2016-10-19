@@ -13,11 +13,11 @@ function showMadLib() {
 	var adjective = document.getElementById('adjective').value;
 
 	// Combine the above user inputs with our Mad Lib story
-
 	var madLib = 'Bob robbed the bank with a deadly <span class="fill">' + noun + '</span>, but then his <span class="fill">' + adjective + '</span> girlfriend <span class="fill">' + verb + '</span> the cash!';
-	// Make a JavaScript object for the HTML element with id "madlib"
+
+	// Make a JavaScript object for the HTML element with id "madlib"...
 	var madLibContainer = document.getElementById('madlib');
 
-	// Change its contents to contain our madLib string, turning the string into HTML
+	// ...and change its contents to contain our madLib string, turning the string into HTML
 	madLibContainer.innerHTML = madLib;
 }

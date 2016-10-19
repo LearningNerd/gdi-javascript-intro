@@ -1,0 +1,60 @@
+<section>
+	<h2>Data types</h2>
+	<p>Variables can contain different types of data, like strings, numbers, and more!</p>
+	<pre><code class="javascript" data-trim contenteditable="">
+var adjective = 'purple';
+var favoriteNumber = 3;
+	</code></pre>
+	<p class="small">The computer stores everything as 1s and 0s, but <em>interprets</em> the 1s and 0s differently depending on what data type it is.</p>
+	<p class="small" style="margin-top:30px;">For example: "0001" might represent the number 1, the letter A, the value TRUE, or something else!</p>
+</section>
+
+<section>
+	<h2 style="font-size:1.5em;">A chunk of text is called a <strong>string</strong></h2>
+
+	<p>Strings are like a bunch of letters <em>strung</em> together into a sentence, like alphabet beads on a necklace.</p>
+	<!--
+	LATER: section on converting data types:
+		<li class="fragment highlight-current-blue">If a string contains a number (<code>var myString = "5"</code>), the computer treats it as text.</li>
+	Also later:
+	- escaping strings, special characters
+	-->
+	</ul>
+	<img src="img/letter-beads.jpg" class="noborder">
+
+	<p>Strings are always surrounded by quote marks, either single (<code class="green bold">' '</code>) or double (<code class="green bold">" "</code>).</p>
+	<p class="small">It doesn't matter which you choose, as long as the opening and closing quote marks match!</p>
+
+	<p><cite>Photo by <a href="https://www.flickr.com/photos/smkybear/2066237409" target="_blank">Wendy (smkybear) on Flickr</a></cite></p>
+</section>
+
+<section>
+	<h2>Connecting strings together</h2>
+	<p>So you've already defined some strings like <code>favoriteAnimal</code> and <code>favoriteFood</code>, but how can you combine them into a sentence?</p>
+
+	<!--
+		ASK: if you were inventing your own programming language, how would you do it?
+		Get a couple volunteers to say what they would type, before showing answer.
+
+	-->
+
+	<pre class="fragment"><code class="javascript" data-trim contenteditable="">
+		var sentence = 'My name is ' + myName + ' and I rock!';
+	</code></pre>
+	<p class="fragment">Try it! Run this code in your console. Then type "sentence" and hit enter, and you'll see the output:<br> <b>I am Sally Awesomepants and I rock!</b></p>
+	<p class="fragment small blue" style="margin-top:40px;"><strong>Note:</strong> The console remembers the <code>myName</code> variable that you defined earlier, because it's saved in memory until you close your browser tab. Neat, huh?</p>
+</section>
+
+<section>
+	<p style="margin-bottom:60px;">Now run this code in your console:</p>
+	<pre><code class="javascript" data-trim contenteditable="">
+var madLib = 'Yesterday I found a ' + adjective + ' ' + favoriteAnimal + ' with ' + favoriteNumber + ' eyes eating ' + favoriteFood + ' on my dining table and writing JavaScript on my computer! It wrote some code that concatenated strings, so I ran the code and the ouput was: ' + sentence;
+	</code></pre>
+	<p style="margin-top:60px;">After running the code, remember to type <code>madLib</code> and hit enter to see the value of the madLib string!</p>
+</section>
+
+<section>
+	<h2 style="font-size:1.3em;margin-bottom:60px;">Combining strings = concatenation</h2>
+	<p>The fancy technical term for combining strings is called <strong class="green">concatenation</strong>. Say that ten times fast!</p>
+	<p style="margin-top:60px;">When used with strings, the <strong>+</strong> symbol is called the <strong>concatenation operator</strong>. Sounds fancy, huh?</p>
+</section>
