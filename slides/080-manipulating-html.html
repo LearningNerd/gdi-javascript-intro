@@ -1,29 +1,68 @@
 <section>
-	<h2>Let's review our project goals again</h2>
-
-	<!--
-		VERBAL instructions:
-		- So now we know how to make the essence of the Mad Lib, but it's not very user-friendly or pretty in the console!
-		- So next.... remember the steps we outlined earlier...
-	-->
-
-</section>
-
-<section>
-	<h2 style="font-size:1.5em;margin-bottom:60px;">What does our JavaScript code need to do for this app?</h2>
-	<p style="margin-bottom:40px;">Get user input from the HTML <code>&lt;input&gt;</code> elements</p>
-	<p style="margin-bottom:40px;">Combine user input with our Mad Lib story</p>
-	<p>Show finished Mad Lib when user clicks the button</p>
-
-
-	<!--
-		VERBAL instructions:
-		- So next we'll start learning about how to use JavaScript to manipulate the HTML page,
-		- and to do that we'll learn about some more built-in functions
-	-->
-
-</section>
-
-<section>
 	<h2>Manipulating HTML elements with JavaScript</h2>
+</section>
+
+<section>
+	<h2>TODO: HTML Review ?</h2>
+</section>
+
+<section>
+	<h2>TODO: Overview of the DOM</h2>
+	<ul>
+		<li>It's a hierarchy just like the file system</li>
+		<li>Document at the root, contains whole web page, other elements are nested nodes</li>
+		<li>(find and show a diagram, copyright free)</li>
+	</ul>
+</section>
+
+<section>
+	<h2>TODO: Preview of Objects</h2>
+	<ul>
+		<li>So far we've worked with simple variables, but what if we have a whole bunch of them? (ex: myName, myBirthday, myProfession, etc)</li>
+		<li>You can think of an <code>object</code> as a bag of related variables -- a convenient way to group them together</li>
+		<li>(example of object literal notation)</li>
+		<li>objects can contain variables, called properties, and functions, called methods. (I know, more vocab, ugh!)</li>
+	</ul>
+</section>
+
+<section>
+	<h2>TODO: textContent (and innerHTML ?) property</h2>
+	<ul>
+		<li>test document.body.textContent = 'You got hacked!' in console on google.com or another big site, then refresh the page (joke with class, did we just hack Google? uhh no thankfully not that easy!)</li>
+		<li>explain that textContent is a property of all HTML elements, the plain text contained inside them</li>
+	</ul>
+</section>
+
+<section>
+	<h2>TODO: document.getElementById</h2>
+	<ul>
+		<li>what if we want to access or change the text inside a specific element, not the whole page? first we need to find it!</li>
+		<li>(side note: "traversing the DOM" is BLEH)</li>
+		<li>luckily there's a built-in function (technically, a method of the document object) called document.getElementById ! it takes one parameter: any guesses what it is?</li>
+		<li>include an element with a specific id inside the slide, have everyone modify it.. show sample code for getElementById and textContent</li>
+	</ul>
+</section>
+
+<section>
+	<h2>TODO: Challenge: get each input element and put text into it</h2>
+	<ul>
+		<li>look inside the index.html file we made earlier, find the info you need, then in the js file use these new functions!</li>
+	</ul>
+</section>
+
+<section>
+	<h2>TODO: The value property</h2>
+	<ul>
+		<li>JS + HTML is messy, so there's a <em>different</em> property for getting the input that a user provides in a form element: it's called value!</li>
+		<li>code example</li>
+		<li>challenge: get the value of the form elements in our mad lib app... oh, but it doesn't work! why? the code runs immediately, before the user has typed anything! we need to control WHEN this code runs. any guesses on when it should run?</li>
+	</ul>
+</section>
+
+<section>
+	<h2>TODO: event listeners</h2>
+	<ul>
+		<li>addEventListener, simplified intro. its 2nd parameter requires.. another function! like whooa!</li>
+		<li>challenge: write a function that saves the values from the input boxes into three new variables, and use an event listener on the submit button to run that function when a user clicks the button!</li>
+	</ul>
 </section>

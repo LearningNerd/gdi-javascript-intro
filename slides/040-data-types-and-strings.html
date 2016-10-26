@@ -5,14 +5,14 @@
 var adjective = 'purple';
 var favoriteNumber = 3;
 	</code></pre>
-	<p class="small">The computer stores everything as 1s and 0s, but <em>interprets</em> the 1s and 0s differently depending on what data type it is.</p>
+	<p class="small">The computer stores everything as 1s and 0s, but it <em>interprets</em> the 1s and 0s differently depending on what data type they are.</p>
 	<p class="small" style="margin-top:30px;">For example: "0001" might represent the number 1, the letter A, the value TRUE, or something else!</p>
 </section>
 
 <section>
 	<h2 style="font-size:1.5em;">A chunk of text is called a <strong>string</strong></h2>
 
-	<p>Strings are like a bunch of letters <em>strung</em> together into a sentence, like alphabet beads on a necklace.</p>
+	<p>Strings are a bunch of symbols <em>strung</em> together into a sentence, just like alphabet beads on a necklace.</p>
 	<!--
 	LATER: section on converting data types:
 		<li class="fragment highlight-current-blue">If a string contains a number (<code>var myString = "5"</code>), the computer treats it as text.</li>
@@ -26,6 +26,40 @@ var favoriteNumber = 3;
 	<p class="small">It doesn't matter which you choose, as long as the opening and closing quote marks match!</p>
 
 	<p><cite>Photo by <a href="https://www.flickr.com/photos/smkybear/2066237409" target="_blank">Wendy (smkybear) on Flickr</a></cite></p>
+</section>
+
+<section>
+	<h2 style="font-size:1.2em;">What if your string contains a quote mark?</h2>
+	<p>Since strings are always surrounded by quote marks, if your string also <em>contains</em> a quote mark,<br> you'll run into trouble!</p>
+	<pre><code class="javascript" data-trim contenteditable="">
+var brokenString = 'I think I'm doing this wrong!';
+	</code></pre>
+	<p>Try it out in the console. Did you get an error?</p>
+	<p>Let's see how to fix it...</p>
+</section>
+
+<section>
+	<h2 style="font-size:1.4em;">Solution 1: Use different quote marks</h2>
+	<p>You can use double (<code class="green bold">" "</code>) quote marks to surround a string containing a single quote:</p>
+	<pre><code class="javascript" data-trim contenteditable="">
+var fixedString1 = "I think I'm doing this right!";
+	</code></pre>
+
+	<p>Or vice versa, you can use single quotes (<code class="green bold">' '</code>) to surround a string containing a double quote:</p>
+	<pre><code class="javascript" data-trim contenteditable="">
+var fixedString2 = 'I shouted "Yay!" when it worked.';
+	</code></pre>
+</section>
+
+<section>
+	<h2 style="font-size:1.4em;">Solution 2: Escaping characters</h2>
+	<p>You can <strong>escape</strong> special characters like quote marks by adding a backslash (<code class="green bold">\</code>) in front of them:</p>
+	<pre style="margin: 50px 0;"><code class="javascript" data-trim contenteditable="">
+var fixedString3 = 'Yay, I\'m escaping strings!';
+	</code></pre>
+
+	<p>Escape notation is also used for printing special characters like tab (<code class="green bold">\t</code>) and new line (<code class="green bold">\n</code>).
+		 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank">See more on strings in this reference page</a>.</p>
 </section>
 
 <section>
@@ -56,5 +90,5 @@ var madLib = 'Yesterday I found a ' + adjective + ' ' + favoriteAnimal + ' with 
 <section>
 	<h2 style="font-size:1.3em;margin-bottom:60px;">Combining strings = concatenation</h2>
 	<p>The fancy technical term for combining strings is called <strong class="green">concatenation</strong>. Say that ten times fast!</p>
-	<p style="margin-top:60px;">When used with strings, the <strong>+</strong> symbol is called the <strong>concatenation operator</strong>. Sounds fancy, huh?</p>
+	<p style="margin-top:60px;">When used with strings, the <strong>+</strong> symbol is called the <strong>concatenation operator</strong>.</p>
 </section>

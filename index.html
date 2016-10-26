@@ -173,7 +173,7 @@
 			getElementById
 			also use .value and .innerHTML for Mad Libs
 		-->
-		<li>Creating our own functions</li>
+		<li>Creating your own functions</li>
 		<li>Using JavaScript to access HTML elements</li>
 		<li>JavaScript event listeners</li>
 		<!-- reminders for later:
@@ -278,14 +278,14 @@ favoriteFood = 'pizza';
 var adjective = 'purple';
 var favoriteNumber = 3;
 	</code></pre>
-	<p class="small">The computer stores everything as 1s and 0s, but <em>interprets</em> the 1s and 0s differently depending on what data type it is.</p>
+	<p class="small">The computer stores everything as 1s and 0s, but it <em>interprets</em> the 1s and 0s differently depending on what data type they are.</p>
 	<p class="small" style="margin-top:30px;">For example: "0001" might represent the number 1, the letter A, the value TRUE, or something else!</p>
 </section>
 
 <section>
 	<h2 style="font-size:1.5em;">A chunk of text is called a <strong>string</strong></h2>
 
-	<p>Strings are like a bunch of letters <em>strung</em> together into a sentence, like alphabet beads on a necklace.</p>
+	<p>Strings are a bunch of symbols <em>strung</em> together into a sentence, just like alphabet beads on a necklace.</p>
 	<!--
 	LATER: section on converting data types:
 		<li class="fragment highlight-current-blue">If a string contains a number (<code>var myString = "5"</code>), the computer treats it as text.</li>
@@ -299,6 +299,40 @@ var favoriteNumber = 3;
 	<p class="small">It doesn't matter which you choose, as long as the opening and closing quote marks match!</p>
 
 	<p><cite>Photo by <a href="https://www.flickr.com/photos/smkybear/2066237409" target="_blank">Wendy (smkybear) on Flickr</a></cite></p>
+</section>
+
+<section>
+	<h2 style="font-size:1.2em;">What if your string contains a quote mark?</h2>
+	<p>Since strings are always surrounded by quote marks, if your string also <em>contains</em> a quote mark,<br> you'll run into trouble!</p>
+	<pre><code class="javascript" data-trim contenteditable="">
+var brokenString = 'I think I'm doing this wrong!';
+	</code></pre>
+	<p>Try it out in the console. Did you get an error?</p>
+	<p>Let's see how to fix it...</p>
+</section>
+
+<section>
+	<h2 style="font-size:1.4em;">Solution 1: Use different quote marks</h2>
+	<p>You can use double (<code class="green bold">" "</code>) quote marks to surround a string containing a single quote:</p>
+	<pre><code class="javascript" data-trim contenteditable="">
+var fixedString1 = "I think I'm doing this right!";
+	</code></pre>
+
+	<p>Or vice versa, you can use single quotes (<code class="green bold">' '</code>) to surround a string containing a double quote:</p>
+	<pre><code class="javascript" data-trim contenteditable="">
+var fixedString2 = 'I shouted "Yay!" when it worked.';
+	</code></pre>
+</section>
+
+<section>
+	<h2 style="font-size:1.4em;">Solution 2: Escaping characters</h2>
+	<p>You can <strong>escape</strong> special characters like quote marks by adding a backslash (<code class="green bold">\</code>) in front of them:</p>
+	<pre style="margin: 50px 0;"><code class="javascript" data-trim contenteditable="">
+var fixedString3 = 'Yay, I\'m escaping strings!';
+	</code></pre>
+
+	<p>Escape notation is also used for printing special characters like tab (<code class="green bold">\t</code>) and new line (<code class="green bold">\n</code>).
+		 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank">See more on strings in this reference page</a>.</p>
 </section>
 
 <section>
@@ -329,7 +363,7 @@ var madLib = 'Yesterday I found a ' + adjective + ' ' + favoriteAnimal + ' with 
 <section>
 	<h2 style="font-size:1.3em;margin-bottom:60px;">Combining strings = concatenation</h2>
 	<p>The fancy technical term for combining strings is called <strong class="green">concatenation</strong>. Say that ten times fast!</p>
-	<p style="margin-top:60px;">When used with strings, the <strong>+</strong> symbol is called the <strong>concatenation operator</strong>. Sounds fancy, huh?</p>
+	<p style="margin-top:60px;">When used with strings, the <strong>+</strong> symbol is called the <strong>concatenation operator</strong>.</p>
 </section>
 <section>
 	<h2 style="font-size:1.4em;margin-top:-35px;">Challenge: Write your own Mad Lib</h2>
@@ -354,7 +388,7 @@ var madLib = 'Yesterday I found a ' + adjective + ' ' + favoriteAnimal + ' with 
 <section>
 	<h2 style="font-size:1.5em;">Let's set up our project</h2>
 	<ol class="medium-margin">
-		<li>Create a new folder named <code>madlibs</code> somewhere easy to find (like on your Desktop)</li>
+		<li>Create a new folder named <code>madlibs</code> somewhere easy to find (maybe on your Desktop)</li>
 		<li>Open up your text editor (like <a href="https://atom.io/" target="_blank">Atom</a> or <a href="https://www.sublimetext.com/" target="_blank">Sublime</a>)</li>
 		<li>Create a new HTML file called <code>index.html</code> and save it in your madlibs folder</li>
 		<li>Create a new CSS file called <code>style.css</code> and save it in your madlibs folder</li>
@@ -478,9 +512,13 @@ h1 {
 &lt;/html&gt;
 </code></pre>
 
-	<p class="small">Note that here we assume <code>madlibs.js</code> is in the same folder as the HTML file that's linking it.</p>
+	<p class="small">Note that here we assume <code>madlibs.js</code> is in the same folder as the HTML file that's linking to it.</p>
 
 </section>
+<section>
+	<h2>JavaScript Functions</h2>
+</section>
+
 <section>
 	<h2  style="font-size:1.4em;">Meet your first built-in function: <code>console.log</code>!</h2>
 
@@ -488,87 +526,305 @@ h1 {
 
 <pre><code class="javascript" data-trim contenteditable="">
 console.log('Hello world!');
-var myName = 'Sally Awesomepants';
-console.log(myName);
 </code></pre>
 
-	<p>Now open the browser console. You should see the messages <code>"Hello world!"</code> and <code>"Sally Awesomepants"</code>.</p>
-
-<!--
-	VERBAL instructions:
-	- Point out that console.log is very useful for testing that your app is doing what you think it's doing -- debugging!
--->
+	<p>Now open the browser console. You should see the message <code>"Hello world!"</code></p>
 
 </section>
 
 <section>
-	<h2>Functions</h2>
+	<p>The <code>console.log</code> function displays information in the console. Use it to confirm that your code is doing what you think it's doing!</p>
+	<img src="img/console-log-all-the-things.jpg" class="noborder" style="margin:30px 0;">
+	<p>This <em>log</em> of information is similar to the <a target="_blank" href="https://en.wikipedia.org/wiki/Logbook">logbooks</a> used by ship captains to track important events.</p>
+</section>
 
-	<!--
-		- can be built in, or you can create your own
-		- parameters / arguments -- 0, 1, 2, or many more
-		- function name followed by ( ); to run a function
-		- parameters list separated by commas
-		- parameters can be raw data types like strings, numbers, or other variables, or even other functions!
-	-->
+<section>
+	<p>Fun fact: most web browsers support fancy customizations, like styling the messages with CSS!</p>
+	<img src="img/console-css.png"  style="margin:30px 0;">
+	<p>See more advanced tricks in <a target="_blank" href="https://developers.google.com/web/tools/chrome-devtools/console/console-write">Chrome's documentation</a></p>
+</section>
+<section>
+	<h2>So what are functions?</h2>
 
+	<p>A function is a reusable chunk of code that performs a particular action.</p>
+
+	<img src="img/function-machine.png" class="noborder">
+
+	<p>In mathematics, a function transforms input(s) into output. But for JavaScript functions, the inputs and output are optional.</p>
+
+	<!-- <p class="small">Programming languages typically provide a bunch of built-in functions (like <code>console.log</code>), but you can also create your own functions!</p> -->
+</section>
+
+<section>
+	<h2>Running functions</h2>
+
+	<p>To run or <em>call</em> a function, type its name followed by<br> <code class="green bold">( );</code> with any inputs listed inside the parentheses:</p>
+
+<pre><code class="javascript" data-trim contenteditable="">
+// One string input:
+console.log('I am a string');
+
+// Three string inputs:
+console.log('string1', 'string2', 'string3');
+
+// Or no inputs at all:
+console.log();
+</code></pre>
+
+<p>Functions in JavaScript can take zero, one, or more inputs separated by commas.</p>
+
+</section>
+
+<section>
+	<h2>Function inputs</h2>
+
+	<p>Any variable or data type can be used as input for a function, and you can mix and match:</p>
+
+<pre><code class="javascript" data-trim contenteditable="">
+var favoriteNumber = 5;
+// Using a variable containing a number as input:
+console.log(favoriteNumber);
+
+var animal = 'penguins';
+// You can mix and match data types:
+console.log('I found ', favoriteNumber, animal);
+</code></pre>
+
+<p>JavaScript functions can even take other functions as their inputs! But more on that later.</p>
+
+</section>
+
+<section>
+	<h2 style="font-size:1.4em;">Defining your own custom functions</h2>
+
+	<p>JavaScript has lots of built-in functions, but you can also create your own!</p>
+
+<pre><code class="javascript" data-trim contenteditable="">
+// Defining a function called shout:
+function shout (phrase) {
+	console.log(phrase + '!!!');
+}
+
+// Running (or calling) the function:
+shout('I love JavaScript');
+shout('Functions rock');
+</code></pre>
+
+<p>Try it out! First you <strong>define</strong> your function, and then you can <strong>call</strong> it as many times as you want.</p>
+
+</section>
+
+<section>
+	<h2 style="font-size:1.4em;">Parts of a function definition</h2>
+
+<pre style="font-size:1.1em;">
+<span class="fragment highlight-current-red" data-fragment-index="0">function</span> <span class="fragment highlight-current-red"  data-fragment-index="1">shout</span> <span class="fragment highlight-current-red"  data-fragment-index="2">(phrase)</span> <span class="fragment highlight-current-red"  data-fragment-index="3">{
+   console.log(phrase + '!!!');
+}</span>
+</pre>
+
+<!-- <p><span class="fragment highlight-current-red" data-fragment-index="0"><span class="bold">1)</span> the <code>function</code> keyword</span>, <span class="fragment highlight-current-red" data-fragment-index="1"><span class="bold">2)</span> the name of the function</span>, <span class="fragment highlight-current-red" data-fragment-index="2"><span class="bold">3)</span> parentheses containing optional inputs (parameters)</span>, and <span class="fragment highlight-current-red" data-fragment-index="3"><span class="bold">4)</span> curly brackets containing the body of the function or the code that it will run.</span></p> -->
+
+<ol class="less-margin">
+	<li><span class="fragment highlight-current-red" data-fragment-index="0">The <code>function</code> keyword</span></li>
+	<li><span class="fragment highlight-current-red" data-fragment-index="1">The name of the function (follow same naming rules as variables)</span></li>
+	<li><span class="fragment highlight-current-red" data-fragment-index="2">Parentheses containing optional inputs (called parameters)</span></li>
+	<li><span class="fragment highlight-current-red" data-fragment-index="3">Curly brackets containing the code that it will run (called the function body)</span></li>
+</ol>
+
+</section>
+
+<section>
+	<p>Defining a function with multiple <em>parameters</em>:</p>
+<pre><code class="javascript" data-trim contenteditable="">
+// Defining a function with 3 parameters:
+function displayThreeWords (word1, word2, word3) {
+	console.log(word1 + ' ' + word2 + ' ' + word3);
+}
+</code></pre>
+
+<p>Running the function with multiple <em>arguments</em>:</p>
+<pre><code class="javascript" data-trim contenteditable="">
+// Running the function with 3 arguments:
+displayThreeWords('pineapple', 'motorboat', 'toothbrush');
+</code></pre>
+
+</section>
+
+<section>
+	<h2>Parameters vs arguments</h2>
+
+		<!-- <ul>
+			<li>A <span class="green bold">parameter</span> refers to a function's input regardless of any specific value, like when we <strong>define</strong> the function.</li>
+			<li>An <span class="blue bold">argument</span> refers to the specific input used in a particular case, like when we <strong>call</strong> the function.</li>
+		</ul> -->
+
+	<p style="margin-bottom:30px;"><span class="bold">Here's a handy way to remember it:</span></p>
+		<ul class="less-margin">
+			<li>The <span class="green bold">p</span>arameter is the <span class="green bold">p</span>arking space</li>
+			<li>The <span class="blue bold">a</span>rgument is the <span class="blue bold">a</span>utomobile</li>
+		</ul>
+
+<pre><code class="javascript" data-trim contenteditable="">
+// 3 parameters, don't know the values yet:
+function displayThreeWords (word1, word2, word3) {
+	console.log(word1 + ' ' + word2 + ' ' + word3);
+}
+
+// 3 arguments, specific values:
+displayThreeWords('pineapple', 'motorboat', 'toothbrush');
+</code></pre>
+
+</section>
+
+<section>
+	<h2>Returning outputs</h2>
+
+	<p>To get an output from your function, use the <code>return</code> keyword followed by the output value:</p>
+
+<pre><code class="javascript" data-trim contenteditable="">
+// Define a function with 1 parameter and an output:
+function shout (phrase) {
+	return phrase + '!!!';
+}
+
+// Run the function and save the output to a variable
+var myResult = shout('I got some output');
+
+// Display the output
+console.log(myResult);
+</code></pre>
+
+<p>Try it out! Notice that now we can <em>save</em> the results of our function, not just display them in the console.</p>
+
+</section>
+
+<section>
+	<h2>Return vs console.log</h2>
+
+	<p style="margin-bottom:40px;">Keep in mind that <code>console.log</code> displays information but doesn't save it.</p>
+
+	<p>So if you want to <em>use</em> the output from your function later on, you need to <code>return</code> it!</p>
+
+	<!-- We'll RETURN to this topic later (haha get it, return? =P ) -->
+</section>
+<section>
+	<h2 style="font-size:1.4em;margin-top:-65px;">Challenge: Function practice</h2>
+	<ol class="medium-margin">
+		<li>Define a function called <code>sayHello</code> that takes <em>no</em> input parameters and returns as output a string that says hello to the world.</li>
+		<li>Define a function called <code>prettify</code> that takes one parameter, adds <code>"* ~ * ~ * ~"</code> in front of it and <code>"~ * ~ * ~ *"</code> to the end of it, and returns the combination as the output.</li>
+		<li>Call the <code>sayHello</code> function and save its output in a new variable called <code>greeting</code>.</li>
+		<li>Call the <code>prettify</code> function, passing it your <code>greeting</code> variable as an argument, and save its output back into the same variable <code>greeting</code>.</li>
+		<li>Display this final result in the console. Beautiful!</li>
+	</ol>
+</section>
+
+<section>
+	<h2 style="font-size:1.4em;margin-top:-65px;">Challenge: Refactor our Mad Libs</h2>
+	<ol class="medium-margin">
+		<li>Choose a random new Mad Lib story from our list of links here: <a href="https://goo.gl/ELnYzm" target="_blank">goo.gl/ELnYzm</a></li>
+		<li>Scroll to the bottom and change the code so the Mad Lib is created inside a function that takes the input words (like "noun", etc) as parameters and returns the Mad Lib as its output.</li>
+		<li>At the top of the page, delete the input variables (like "noun", etc) and replace them all with a single call to your new function, providing it with specific strings as its arguments.</li>
+		<li>Display the output of the function in the console.</li>
+		<li>Click "Run" to test it out, click "Save" when you're done, and then click "Share", copy the link, and paste it back into here: <a href="https://goo.gl/ELnYzm" target="_blank">goo.gl/ELnYzm</a></li>
+	</ol>
 </section>
 <section>
 	<h2>Let's review our project goals again</h2>
 
 	<!--
 		VERBAL instructions:
-		- So now we know how to make the essence of the Mad Lib, but it's not very user-friendly or pretty in the console!
-		- So next.... remember the steps we outlined earlier...
+		- Great job!! So now we know how to make the essence of the Mad Lib, but it's not very user-friendly or pretty in the console!
 	-->
 
 </section>
 
 <section>
 	<h2 style="font-size:1.5em;margin-bottom:60px;">What does our JavaScript code need to do for this app?</h2>
+
 	<p style="margin-bottom:40px;">Get user input from the HTML <code>&lt;input&gt;</code> elements</p>
 	<p style="margin-bottom:40px;">Combine user input with our Mad Lib story</p>
 	<p>Show finished Mad Lib when user clicks the button</p>
 
-
 	<!--
 		VERBAL instructions:
+		- We've already written a function that does step 2, woohoo!!
 		- So next we'll start learning about how to use JavaScript to manipulate the HTML page,
-		- and to do that we'll learn about some more built-in functions
+		- and to do that we'll learn about some more built-in functions (there's way more than just console.log, haha)
 	-->
 
 </section>
-
 <section>
 	<h2>Manipulating HTML elements with JavaScript</h2>
 </section>
+
 <section>
-	<h2>NEXT</h2>
+	<h2>TODO: HTML Review ?</h2>
+</section>
+
+<section>
+	<h2>TODO: Overview of the DOM</h2>
 	<ul>
-		<li>1 or 2 minute overview of the DOM -- document at the top, the rest is in a hierarchy (show diagram?)</li>
-		<li>30 second intro to objects: think of it as a bucket of variables and functions grouped together (show diagram?)</li>
-		<li>using document.innerHTML to put stuff on the HTML page, using console and using JS file</li>
-		<li>document.getElementById, test in concolse and in JS file</li>
-		<li>input.value, test in console and then in JS file</li>
-		<li>addEventListener, simplified intro. its 2nd parameter requires.. another function! like whooa!</li>
-		<li>introduce how to define and run a custom function.. maybe do a game where everyone writes functions that interact with each other somehow</li>
-
-			<!-- TOPICS ON CREATING CUSTOM FUNCTIONS, for later:
-
-				- function keyword to define a function, ( optional parameters ), { body }
-				- return statement and/or side effects
-				- parameters / arguments -- 0, 1, 2, or many more
-				- functions have TWO STEPS: defining them, and later calling them
-					- define it once, use it as many times as you want (same with variables!)
-				- after defining, function name followed by ( ); to call/run a function
-				- CHALLENGE: create a function that replaces the contents of the whole page with "hello world"
-			-->
+		<li>It's a hierarchy just like the file system</li>
+		<li>Document at the root, contains whole web page, other elements are nested nodes</li>
+		<li>(find and show a diagram, copyright free)</li>
 	</ul>
 </section>
 
+<section>
+	<h2>TODO: Preview of Objects</h2>
+	<ul>
+		<li>So far we've worked with simple variables, but what if we have a whole bunch of them? (ex: myName, myBirthday, myProfession, etc)</li>
+		<li>You can think of an <code>object</code> as a bag of related variables -- a convenient way to group them together</li>
+		<li>(example of object literal notation)</li>
+		<li>objects can contain variables, called properties, and functions, called methods. (I know, more vocab, ugh!)</li>
+	</ul>
+</section>
 
 <section>
-	<p>PROJECT TWO: if/else, boolean values, arithmetic and comparison operators</p>
+	<h2>TODO: textContent (and innerHTML ?) property</h2>
+	<ul>
+		<li>test document.body.textContent = 'You got hacked!' in console on google.com or another big site, then refresh the page (joke with class, did we just hack Google? uhh no thankfully not that easy!)</li>
+		<li>explain that textContent is a property of all HTML elements, the plain text contained inside them</li>
+	</ul>
+</section>
+
+<section>
+	<h2>TODO: document.getElementById</h2>
+	<ul>
+		<li>what if we want to access or change the text inside a specific element, not the whole page? first we need to find it!</li>
+		<li>(side note: "traversing the DOM" is BLEH)</li>
+		<li>luckily there's a built-in function (technically, a method of the document object) called document.getElementById ! it takes one parameter: any guesses what it is?</li>
+		<li>include an element with a specific id inside the slide, have everyone modify it.. show sample code for getElementById and textContent</li>
+	</ul>
+</section>
+
+<section>
+	<h2>TODO: Challenge: get each input element and put text into it</h2>
+	<ul>
+		<li>look inside the index.html file we made earlier, find the info you need, then in the js file use these new functions!</li>
+	</ul>
+</section>
+
+<section>
+	<h2>TODO: The value property</h2>
+	<ul>
+		<li>JS + HTML is messy, so there's a <em>different</em> property for getting the input that a user provides in a form element: it's called value!</li>
+		<li>code example</li>
+		<li>challenge: get the value of the form elements in our mad lib app... oh, but it doesn't work! why? the code runs immediately, before the user has typed anything! we need to control WHEN this code runs. any guesses on when it should run?</li>
+	</ul>
+</section>
+
+<section>
+	<h2>TODO: event listeners</h2>
+	<ul>
+		<li>addEventListener, simplified intro. its 2nd parameter requires.. another function! like whooa!</li>
+		<li>challenge: write a function that saves the values from the input boxes into three new variables, and use an event listener on the submit button to run that function when a user clicks the button!</li>
+	</ul>
+</section>
+
+<section>
+	<p>PROJECT TWO ideas: if/else, boolean values, arithmetic and comparison operators</p>
 	<p>number guessing game? tip calculator? start a simple text-based RPG type game? something similar?</p>
 </section>
 

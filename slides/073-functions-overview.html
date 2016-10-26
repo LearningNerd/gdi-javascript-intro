@@ -1,0 +1,165 @@
+<section>
+	<h2>So what are functions?</h2>
+
+	<p>A function is a reusable chunk of code that performs a particular action.</p>
+
+	<img src="img/function-machine.png" class="noborder">
+
+	<p>In mathematics, a function transforms input(s) into output. But for JavaScript functions, the inputs and output are optional.</p>
+
+	<!-- <p class="small">Programming languages typically provide a bunch of built-in functions (like <code>console.log</code>), but you can also create your own functions!</p> -->
+</section>
+
+<section>
+	<h2>Running functions</h2>
+
+	<p>To run or <em>call</em> a function, type its name followed by<br> <code class="green bold">( );</code> with any inputs listed inside the parentheses:</p>
+
+<pre><code class="javascript" data-trim contenteditable="">
+// One string input:
+console.log('I am a string');
+
+// Three string inputs:
+console.log('string1', 'string2', 'string3');
+
+// Or no inputs at all:
+console.log();
+</code></pre>
+
+<p>Functions in JavaScript can take zero, one, or more inputs separated by commas.</p>
+
+</section>
+
+<section>
+	<h2>Function inputs</h2>
+
+	<p>Any variable or data type can be used as input for a function, and you can mix and match:</p>
+
+<pre><code class="javascript" data-trim contenteditable="">
+var favoriteNumber = 5;
+// Using a variable containing a number as input:
+console.log(favoriteNumber);
+
+var animal = 'penguins';
+// You can mix and match data types:
+console.log('I found ', favoriteNumber, animal);
+</code></pre>
+
+<p>JavaScript functions can even take other functions as their inputs! But more on that later.</p>
+
+</section>
+
+<section>
+	<h2 style="font-size:1.4em;">Defining your own custom functions</h2>
+
+	<p>JavaScript has lots of built-in functions, but you can also create your own!</p>
+
+<pre><code class="javascript" data-trim contenteditable="">
+// Defining a function called shout:
+function shout (phrase) {
+	console.log(phrase + '!!!');
+}
+
+// Running (or calling) the function:
+shout('I love JavaScript');
+shout('Functions rock');
+</code></pre>
+
+<p>Try it out! First you <strong>define</strong> your function, and then you can <strong>call</strong> it as many times as you want.</p>
+
+</section>
+
+<section>
+	<h2 style="font-size:1.4em;">Parts of a function definition</h2>
+
+<pre style="font-size:1.1em;">
+<span class="fragment highlight-current-red" data-fragment-index="0">function</span> <span class="fragment highlight-current-red"  data-fragment-index="1">shout</span> <span class="fragment highlight-current-red"  data-fragment-index="2">(phrase)</span> <span class="fragment highlight-current-red"  data-fragment-index="3">{
+   console.log(phrase + '!!!');
+}</span>
+</pre>
+
+<!-- <p><span class="fragment highlight-current-red" data-fragment-index="0"><span class="bold">1)</span> the <code>function</code> keyword</span>, <span class="fragment highlight-current-red" data-fragment-index="1"><span class="bold">2)</span> the name of the function</span>, <span class="fragment highlight-current-red" data-fragment-index="2"><span class="bold">3)</span> parentheses containing optional inputs (parameters)</span>, and <span class="fragment highlight-current-red" data-fragment-index="3"><span class="bold">4)</span> curly brackets containing the body of the function or the code that it will run.</span></p> -->
+
+<ol class="less-margin">
+	<li><span class="fragment highlight-current-red" data-fragment-index="0">The <code>function</code> keyword</span></li>
+	<li><span class="fragment highlight-current-red" data-fragment-index="1">The name of the function (follow same naming rules as variables)</span></li>
+	<li><span class="fragment highlight-current-red" data-fragment-index="2">Parentheses containing optional inputs (called parameters)</span></li>
+	<li><span class="fragment highlight-current-red" data-fragment-index="3">Curly brackets containing the code that it will run (called the function body)</span></li>
+</ol>
+
+</section>
+
+<section>
+	<p>Defining a function with multiple <em>parameters</em>:</p>
+<pre><code class="javascript" data-trim contenteditable="">
+// Defining a function with 3 parameters:
+function displayThreeWords (word1, word2, word3) {
+	console.log(word1 + ' ' + word2 + ' ' + word3);
+}
+</code></pre>
+
+<p>Running the function with multiple <em>arguments</em>:</p>
+<pre><code class="javascript" data-trim contenteditable="">
+// Running the function with 3 arguments:
+displayThreeWords('pineapple', 'motorboat', 'toothbrush');
+</code></pre>
+
+</section>
+
+<section>
+	<h2>Parameters vs arguments</h2>
+
+		<!-- <ul>
+			<li>A <span class="green bold">parameter</span> refers to a function's input regardless of any specific value, like when we <strong>define</strong> the function.</li>
+			<li>An <span class="blue bold">argument</span> refers to the specific input used in a particular case, like when we <strong>call</strong> the function.</li>
+		</ul> -->
+
+	<p style="margin-bottom:30px;"><span class="bold">Here's a handy way to remember it:</span></p>
+		<ul class="less-margin">
+			<li>The <span class="green bold">p</span>arameter is the <span class="green bold">p</span>arking space</li>
+			<li>The <span class="blue bold">a</span>rgument is the <span class="blue bold">a</span>utomobile</li>
+		</ul>
+
+<pre><code class="javascript" data-trim contenteditable="">
+// 3 parameters, don't know the values yet:
+function displayThreeWords (word1, word2, word3) {
+	console.log(word1 + ' ' + word2 + ' ' + word3);
+}
+
+// 3 arguments, specific values:
+displayThreeWords('pineapple', 'motorboat', 'toothbrush');
+</code></pre>
+
+</section>
+
+<section>
+	<h2>Returning outputs</h2>
+
+	<p>To get an output from your function, use the <code>return</code> keyword followed by the output value:</p>
+
+<pre><code class="javascript" data-trim contenteditable="">
+// Define a function with 1 parameter and an output:
+function shout (phrase) {
+	return phrase + '!!!';
+}
+
+// Run the function and save the output to a variable
+var myResult = shout('I got some output');
+
+// Display the output
+console.log(myResult);
+</code></pre>
+
+<p>Try it out! Notice that now we can <em>save</em> the results of our function, not just display them in the console.</p>
+
+</section>
+
+<section>
+	<h2>Return vs console.log</h2>
+
+	<p style="margin-bottom:40px;">Keep in mind that <code>console.log</code> displays information but doesn't save it.</p>
+
+	<p>So if you want to <em>use</em> the output from your function later on, you need to <code>return</code> it!</p>
+
+	<!-- We'll RETURN to this topic later (haha get it, return? =P ) -->
+</section>
