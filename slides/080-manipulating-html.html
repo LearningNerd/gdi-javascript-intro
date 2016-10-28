@@ -3,44 +3,183 @@
 </section>
 
 <section>
-	<h2>TODO: HTML Review ?</h2>
+	<h2 style="font-size:1.4em;">The Document Object Model (DOM)</h2>
+
+	<img src="img/dom-tree.png" class="noborder"/>
+
+</section>
+
+
+<section>
+	<h2 style="font-size:1.4em;">The Document Object Model (DOM)</h2>
+
+	<p style="margin-bottom:40px;">The DOM organizes HTML pages as a <strong>hierarchy</strong> of elements, just like the file system on our computers.</p>
+
+	<p>It's built into every web browser to let developers <br>(like us!) modify the contents of our web pages.</p>
+</section>
+
+
+<section>
+	<h2 style="font-size:1.4em;">Document: Root of the tree</h2>
+
+	<p>The <em>root</em> of the hierarchy/tree is the <code>document</code> object, which contains all the other objects that<br> represent our HTML elements.</p>
+
+<pre><code class="javascript" data-trim contenteditable="">
+// Try opening your Mad Libs index.html in your browser,
+// and run this in the console to see what's inside:
+console.dir(document);
+</code></pre>
+
+	<p>Each of these objects contains <strong>properties</strong> like the text content of the HTML elements, their HTML attributes, and their CSS styles.</p>
+
 </section>
 
 <section>
-	<h2>TODO: Overview of the DOM</h2>
-	<ul>
-		<li>It's a hierarchy just like the file system</li>
-		<li>Document at the root, contains whole web page, other elements are nested nodes</li>
-		<li>(find and show a diagram, copyright free)</li>
-	</ul>
+	<p style="margin-bottom:40px;">OK, the Document Object Model sounds cool!</p>
+	<h2 style="font-size:2.2em;">But what are objects?</h2>
 </section>
 
 <section>
-	<h2>TODO: Preview of Objects</h2>
-	<ul>
-		<li>So far we've worked with simple variables, but what if we have a whole bunch of them? (ex: myName, myBirthday, myProfession, etc)</li>
-		<li>You can think of an <code>object</code> as a bag of related variables -- a convenient way to group them together</li>
-		<li>(example of object literal notation)</li>
-		<li>objects can contain variables, called properties, and functions, called methods. (I know, more vocab, ugh!)</li>
-	</ul>
+
+		<p>So far we've worked with simple variables, but what if we have a whole bunch of them?</p>
+<pre><code class="javascript" data-trim contenteditable="">
+var myName = "Sally Awesomepants";
+var myProfession = "full-stack JavaScript developer";
+var myAge = 32;
+var myFavColor = "purple";
+var myFavFood = "pizza";
+var myFavAnimal = "penguin";
+var myFavNumber = 3;
+</code></pre>
+
+	<p>If you have to track this data for hundreds of people, how would you even remember the names of all these variables?! There must be a better way!</p>
+
 </section>
 
 <section>
-	<h2>TODO: textContent (and innerHTML ?) property</h2>
-	<ul>
-		<li>test document.body.textContent = 'You got hacked!' in console on google.com or another big site, then refresh the page (joke with class, did we just hack Google? uhh no thankfully not that easy!)</li>
-		<li>explain that textContent is a property of all HTML elements, the plain text contained inside them</li>
-	</ul>
+	<h2 style="font-size:1.5em;margin-top:-40px;">Objects: bags of related variables</h2>
+
+		<p>You can think of an object as a bag full of variables, just a convenient way to carry them all together:</p>
+
+<!--
+	VERBAL instructions:
+	- point out this new notation, with colons and commas.
+-->
+
+<pre><code class="javascript" data-trim contenteditable="">
+var me = {
+	name: "Sally Awesomepants",
+	profession: "full-stack JavaScript developer",
+	age: 32,
+	favColor: "purple",
+	favFood: "pizza",
+	favAnimal: "penguin",
+	favNumber: 3
+};
+console.log("Hi, I'm " + me.name + ", a "
+	+ me.age + "-year-old " + me.profession + "!");
+</code></pre>
+
+	<p>This is just <em>one</em> of the ways to create an object, called <strong>object literal notation</strong>. But more on that later.</p>
 </section>
 
 <section>
-	<h2>TODO: document.getElementById</h2>
-	<ul>
-		<li>what if we want to access or change the text inside a specific element, not the whole page? first we need to find it!</li>
-		<li>(side note: "traversing the DOM" is BLEH)</li>
-		<li>luckily there's a built-in function (technically, a method of the document object) called document.getElementById ! it takes one parameter: any guesses what it is?</li>
-		<li>include an element with a specific id inside the slide, have everyone modify it.. show sample code for getElementById and textContent</li>
-	</ul>
+	<p>Not only can objects contain variables, but they can even contain their own functions!</p>
+
+	<!--
+		VERBAL instructions:
+		- don't worry about this syntax yet! this is just a preview to introduce the general concept.
+	-->
+
+<pre><code class="javascript" data-trim contenteditable="">
+var myObject = {
+	myProperty: "Here is some data!",
+	myMethod: function () {
+		console.log('Function inside an object!');
+	}
+}
+
+// Access a property of our object:
+console.log(myObject.myProperty);
+
+// Run a method of our object:
+myObject.myMethod();
+</code></pre>
+
+<p><span class="bold">Tech jargon tip:</span><br> when inside an object, its <span class="green">variables</span> are called <em class="bold green">properties</em>, and its <span class="blue">functions</span> are called <em class="bold blue">methods</em>.</p>
+
+</section>
+
+<section>
+	<h2>Let's "hack" Google!</h2>
+
+		<p style="margin-bottom: 40px;">Go to <a href="https://www.google.com/" target="_blank">Google.com</a> and then open your browser console once you're on their homepage.</p>
+		<p>Next, run this code in the console:</p>
+
+<pre><code class="javascript" data-trim contenteditable="">
+document.body.textContent = 'You got hacked!';
+</code></pre>
+
+	<p class="fragment" data-fragment-index="0"><em class="bold">OK, just kidding!</em></p>
+	<p class="fragment" data-fragment-index="0">Thankfully, it's not that easy to hack a website. These changes are temporary, and they only appear on <em>your</em> computer; nobody else will see them.
+</section>
+
+<section>
+	<h2>The textContent property</h2>
+
+	<p>Every element in the DOM has a <code>textContent</code> property that contains the text inside the HTML element it represents. Let's try this out:</p>
+
+<pre><code class="javascript" data-trim contenteditable="">
+// Put this code in your madlibs.js file, then save it
+// and open your index.html file in your web browser.
+var bodyText = document.body.textContent;
+console.log(bodyText);
+
+// SHORTCUT: you could also combine those two lines of code,
+// no variable needed:
+// console.log( document.body.textContent );
+</code></pre>
+
+	<p>Interesting, right? That's all the text in your web page, without the HTML tags! This can be useful...</p>
+
+</section>
+
+<section>
+	<h2 style="font-size:1.3em;line-height:1.2;">But what if we want the text of just<br> <em>one</em> element, not the whole body?</h2>
+
+	<p style="margin-bottom: 40px;">First we need a way to identify it! One way is with <code class="bold green">document.getElementById()</code>, a built-in method of the <code>document</code> object for finding one particular element:</p>
+
+<pre><code class="javascript" data-trim contenteditable="">
+var myElement = document.getElementById('test');
+</code></pre>
+
+<p>It takes one <code>string</code> as an argument, which should match the ID of the HTML element you want to get.</p>
+
+</section>
+
+<section>
+	<h2 style="font-size:1.3em;">Let's try <code>document.getElementById</code>!</h2>
+
+	<p id="changeme" style="font-weight:bold;border:4px solid black;padding:20px; height:120px; width: 200px; margin:0 20px 40px 0;float:left;">Change me!</p>
+
+	<div style="float:right">
+		<p>The HTML for the box on this page is:
+		<pre style="margin-top:20px;"><code class="html">&lt;p id=&quot;changebox&quot;&gt;Change me!&lt;/p&gt;</code></pre></p>
+	</div>
+
+	<p style="clear:both;">Let's change its text! Open your browser console while you're on this slide and try running this code:</p>
+
+<pre style="margin-top:20px;"><code class="javascript" data-trim contenteditable="">
+// Identify the box by its ID:
+var box = document.getElementById('changebox');
+
+// Display its current text content:
+console.log(box.textContent);
+
+// Change its text content:
+box.textContent = 'Voila! JavaScript magic!';
+</code></pre>
+
 </section>
 
 <section>
