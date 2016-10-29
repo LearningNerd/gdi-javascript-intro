@@ -1,0 +1,63 @@
+<section>
+	<p>First, let's look at the bigger picture:</p>
+	<h2>Event-Based Programming</h2>
+</section>
+
+<section>
+	<div class="left" style="width:50%;box-sizing:border-box;">
+		<h2 style="font-size:1.3em;">Procedural Code</h2>
+		<ul style="font-size:0.9em;">
+			<li class="fragment highlight-current-blue" data-fragment-index="0">Code runs when you start the program</li>
+			<li class="fragment highlight-current-blue" data-fragment-index="1">Predictable, runs in the same order every time</li>
+			<li class="fragment highlight-current-blue" data-fragment-index="2">Common in beginner tutorials, probably what you're used to</li>
+		</ul>
+	</div>
+	<div class="right" style="width:50%;box-sizing:border-box;">
+		<h2 style="font-size:1.3em;">Event-Based Code</h2>
+		<ul style="font-size:0.9em;">
+			<li class="fragment highlight-current-blue" data-fragment-index="0">Code runs when an event triggers it (like user input)</li>
+			<li class="fragment highlight-current-blue" data-fragment-index="1">Can't predict when code will run or in what order</li>
+			<li class="fragment highlight-current-blue" data-fragment-index="2">Probably new to you, and it will feel a bit weird!</li>
+		</ul>
+	</div>
+</section>
+
+<section>
+	<h2>The Event Loop</h2>
+
+	<img src="img/domino-loop.gif">
+
+	<p style="margin-top:40px;">The <strong>event loop</strong> is some code that is constantly running in the background. It checks if any events have happened and runs your code at the right time.</p>
+
+</section>
+
+<section>
+	<h2 style="margin-bottom:50px;font-size:1.5em;">Event-based programming is <em>everywhere!</em></h2>
+	<p style="margin-bottom:40px;">Anywhere you deal with user input, you'll see<br> event-based programming.</p>
+	<p>It's built into every web browser too!</p>
+</section>
+
+<section>
+	<h2 style="margin-bottom:50px;">There are <em>lots</em> of events built into JavaScript.</h2>
+	<p>See the <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/Events">MDN event reference page</a> for a <em>gigantic</em> list!</p>
+</section>
+
+<section>
+	<h2 style="font-size:1.5em;">Events can trigger other events</h2>
+	<img src="img/human-dominoes.gif" width="500">
+	<p style="margin-top:40px;">You can create chain reactions in your code, not unlike a row of dominoes!</p>
+</section>
+<!--
+- You can create all sorts of interesting and complex interactions!
+- But the downside is....
+-->
+
+<section>
+	<h2 style="font-size:1.5em;">But sometimes it's hard to get<br> it working</h2>
+	<img src="img/no-dominoes.gif" width="500">
+	<p style="margin-top:40px;">Event-based programming can be harder to learn and harder to debug, so be prepared for some frustration.</p>
+</section>
+<!--
+- Event-based programming can be harder to wrap your head around.
+- Need to make sure your code runs in every possible situation
+-->

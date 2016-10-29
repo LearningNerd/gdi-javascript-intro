@@ -922,7 +922,7 @@ var myElement = document.getElementById('test');
 <section>
 	<h2 style="font-size:1.3em;">Let's try <code>document.getElementById</code>!</h2>
 
-	<p id="changeme" style="font-weight:bold;border:4px solid black;padding:20px; height:120px; width: 200px; margin:0 20px 40px 0;float:left;">Change me!</p>
+	<p id="changebox" style="font-weight:bold;border:4px solid black;padding:20px; height:120px; width: 200px; margin:0 20px 40px 0;float:left;">Change me!</p>
 
 	<div style="float:right">
 		<p>The HTML for the box on this page is:
@@ -945,33 +945,937 @@ box.textContent = 'Voila! JavaScript magic!';
 </section>
 
 <section>
-	<h2>TODO: Challenge: get each input element and put text into it</h2>
-	<ul>
-		<li>look inside the index.html file we made earlier, find the info you need, then in the js file use these new functions!</li>
-	</ul>
+	<h2 style="font-size:1.3em;">Now try it again, but with an input box!</h2>
+
+	<input id="changeinput" value="Change me!" style="margin:30px;padding:10px;width:220px;font-size:1em;float:left;">
+
+	<div style="float:right">
+		<p>The HTML for this input box:
+		<pre style="margin-top:20px;"><code class="html">&lt;input id=&quot;changeinput&quot; value=&quot;Change me!&quot;&gt;</code></pre></p>
+	</div>
+
+	<p style="clear:both;">Close and reopen your browser console, then try:</p>
+
+<pre style="margin-top:20px;"><code class="javascript" data-trim contenteditable="">
+// Identify the input box by its ID:
+var input = document.getElementById('changeinput');
+
+// Notice that its text content is empty!
+console.log(input.textContent);
+
+// We need to use the value property instead:
+console.log(input.value);
+
+// Change its value:
+input.value = 'new value!';
+</code></pre>
+
 </section>
 
 <section>
-	<h2>TODO: The value property</h2>
-	<ul>
-		<li>JS + HTML is messy, so there's a <em>different</em> property for getting the input that a user provides in a form element: it's called value!</li>
-		<li>code example</li>
-		<li>challenge: get the value of the form elements in our mad lib app... oh, but it doesn't work! why? the code runs immediately, before the user has typed anything! we need to control WHEN this code runs. any guesses on when it should run?</li>
-	</ul>
+	<h2>textContent vs value</h2>
+
+	<p style="margin-bottom:40px;">So just remember: you need to use the <code>value</code> property to get the text inside any form elements.</p>
+	<p>For pretty much all other types of HTML elements, the <code>textContent</code> property will work fine.</p>
 </section>
 
 <section>
-	<h2>TODO: event listeners</h2>
-	<ul>
-		<li>addEventListener, simplified intro. its 2nd parameter requires.. another function! like whooa!</li>
-		<li>challenge: write a function that saves the values from the input boxes into three new variables, and use an event listener on the submit button to run that function when a user clicks the button!</li>
-	</ul>
+	<h2 style="font-size:1.4em;">Pair Programming Challenge:<br> Get the value of each Mad Lib input</h2>
+	<p style="margin-bottom:40px;"><span class="bold">1)</span> Look inside your <code>index.html</code> file and find the IDs of each input box; you're gonna need them!</p>
+
+	<p style="margin-bottom:40px;"><span class="bold">2)</span> Create a JavaScript variable containing the value of each input box in your <code>madlibs.js</code> file by using the <code>getElementById</code> method of the <code>document</code> object.</p>
+
+	<p class="small">Be sure to look through the previous slides to review what we've learned so far. And don't be afraid to experiment and break stuff; that's the best way to learn!</p>
+
 </section>
 
 <section>
-	<p>PROJECT TWO ideas: if/else, boolean values, arithmetic and comparison operators</p>
-	<p>number guessing game? tip calculator? start a simple text-based RPG type game? something similar?</p>
+	<h2>Solution</h2>
+
+<pre><code class="javascript" data-trim contenteditable="">
+// Get the values of HTML input boxes
+// with the IDs "noun", "verb", and "adjective"
+var noun = document.getElementById('noun').value;
+var verb = document.getElementById('verb').value;
+var adjective = document.getElementById('adjective').value;
+
+// For testing purposes, display the values in the console
+console.log(noun, verb, adjective);
+</code></pre>
+
+	<p>Save your <code>madlibs.js</code> file, open <code>index.html</code> in the browser, write some text in the input boxes, and then open the console!</p>
 </section>
+
+<section>
+	<h2>It didn't work! Why not?</h2>
+
+	<p class="fragment" style="margin-bottom:40px;">Oh yeah, our code runs as soon as we go to our web page (<code>index.html</code>), before we can type anything into the input boxes! Order of events matters!</p>
+
+	<h3 class="fragment" style="margin-bottom:40px;">When should our code run?</h3>
+
+	<p class="fragment" style="">When the user clicks the button.<br> Let's make it happen!</p>
+</section>
+<section>
+	<p>First, let's look at the bigger picture:</p>
+	<h2>Event-Based Programming</h2>
+</section>
+
+<section>
+	<div class="left" style="width:50%;box-sizing:border-box;">
+		<h2 style="font-size:1.3em;">Procedural Code</h2>
+		<ul style="font-size:0.9em;">
+			<li class="fragment highlight-current-blue" data-fragment-index="0">Code runs when you start the program</li>
+			<li class="fragment highlight-current-blue" data-fragment-index="1">Predictable, runs in the same order every time</li>
+			<li class="fragment highlight-current-blue" data-fragment-index="2">Common in beginner tutorials, probably what you're used to</li>
+		</ul>
+	</div>
+	<div class="right" style="width:50%;box-sizing:border-box;">
+		<h2 style="font-size:1.3em;">Event-Based Code</h2>
+		<ul style="font-size:0.9em;">
+			<li class="fragment highlight-current-blue" data-fragment-index="0">Code runs when an event triggers it (like user input)</li>
+			<li class="fragment highlight-current-blue" data-fragment-index="1">Can't predict when code will run or in what order</li>
+			<li class="fragment highlight-current-blue" data-fragment-index="2">Probably new to you, and it will feel a bit weird!</li>
+		</ul>
+	</div>
+</section>
+
+<section>
+	<h2>The Event Loop</h2>
+
+	<img src="img/domino-loop.gif">
+
+	<p style="margin-top:40px;">The <strong>event loop</strong> is some code that is constantly running in the background. It checks if any events have happened and runs your code at the right time.</p>
+
+</section>
+
+<section>
+	<h2 style="margin-bottom:50px;font-size:1.5em;">Event-based programming is <em>everywhere!</em></h2>
+	<p style="margin-bottom:40px;">Anywhere you deal with user input, you'll see<br> event-based programming.</p>
+	<p>It's built into every web browser too!</p>
+</section>
+
+<section>
+	<h2 style="margin-bottom:50px;">There are <em>lots</em> of events built into JavaScript.</h2>
+	<p>See the <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/Events">MDN event reference page</a> for a <em>gigantic</em> list!</p>
+</section>
+
+<section>
+	<h2 style="font-size:1.5em;">Events can trigger other events</h2>
+	<img src="img/human-dominoes.gif" width="500">
+	<p style="margin-top:40px;">You can create chain reactions in your code, not unlike a row of dominoes!</p>
+</section>
+<!--
+- You can create all sorts of interesting and complex interactions!
+- But the downside is....
+-->
+
+<section>
+	<h2 style="font-size:1.5em;">But sometimes it's hard to get<br> it working</h2>
+	<img src="img/no-dominoes.gif" width="500">
+	<p style="margin-top:40px;">Event-based programming can be harder to learn and harder to debug, so be prepared for some frustration.</p>
+</section>
+<!--
+- Event-based programming can be harder to wrap your head around.
+- Need to make sure your code runs in every possible situation
+-->
+<section>
+	<p>Let's look at some code!</p>
+	<h2>JavaScript Event Listeners</h2>
+
+</section>
+
+<section>
+	<h2 style="font-size:1.5em;margin-top:-40px;">Breakdown of the<br> JavaScript Event Listener</h2>
+
+<pre style="font-size:1em;width:100%;" contenteditable="">
+<span class="fragment highlight-current-red" data-fragment-index="0">document</span>.<span class="fragment highlight-current-red" data-fragment-index="1">addEventListener</span>(<span class="fragment highlight-current-red" data-fragment-index="2">'click'</span>, <span class="fragment highlight-current-red" data-fragment-index="3">myFunction</span>);
+
+function <span class="fragment highlight-current-red" data-fragment-index="3">myFunction</span>(<span class="fragment highlight-current-red" data-fragment-index="4">event</span>) {
+
+	console.log(event);
+
+}
+</pre>
+<!--
+	***	QUESTION FOR EVERYONE: what does this code do? when does it run?
+-->
+		<p class="fragment fade-out steps" data-fragment-index="0">There are <strong class="pink">five parts</strong> to a standard JavaScript<br> event listener</p>
+
+		<p class="fragment current-visible steps" data-fragment-index="0">
+			<strong class="pink">Part 1: Where the events will happen</strong> <br>(in this case, the whole HTML document object)
+		</p>
+
+		<p class="fragment current-visible steps" data-fragment-index="1">
+			<strong class="pink">Part 2: Start listening for events</strong> <br>(with JavaScript's built-in addEventListener method)
+		</p>
+
+		<p class="fragment current-visible steps" data-fragment-index="2">
+			<strong class="pink">Part 3: The type of event</strong> <br>(see <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/Events">this reference list</a> or make up your own)
+		</p>
+
+		<p class="fragment current-visible steps" data-fragment-index="3">
+			<strong class="pink">Part 4: The name of the function to run<br> when the event happens</strong> <br>(known as the "callback" function)
+		</p>
+
+		<p class="fragment current-visible steps" data-fragment-index="4">
+			<strong class="pink">Part 5: This parameter receives an object with info about the event</strong> <br>(different events give you different information)
+		</p>
+
+		<p class="fragment current-visible steps" data-fragment-index="5">
+			<strong class="pink">Let's try it!</strong> Open your console and run this code, then click on the page and check the console again.
+		</p>
+
+</section>
+
+<section>
+	<h2>Behold! Event data!</h2>
+	<p style="margin-bottom:20px;">
+		You should see a MouseEvent object in the console. Click to expand the data:
+	</p>
+	<img src="img/console-expand-object.gif" width="600">
+	<p style="margin-top:20px;">
+		Each event has different properties, which you can use to control all sorts of cool things!<br> But more on that later.
+	</p>
+</section>
+<section>
+	<h2>Let's finish our Mad Libs project!</h2>
+</section>
+
+<section>
+	<h2 style="font-size:1.5em;margin-bottom:60px;">What does our JavaScript code need to do for this app?</h2>
+	<p style="margin-bottom:40px;"><span class="fragment highlight-current-blue" data-fragment-index="4"><span class="fragment fade-out" data-fragment-index="5">Get user input from the HTML <code>&lt;input&gt;</code> elements</span></span></p>
+	<p style="margin-bottom:40px;"><span class="fragment highlight-current-blue" data-fragment-index="3"><span class="fragment fade-out" data-fragment-index="4">Combine user input with our Mad Lib story</span></span></p>
+	<p style="margin-bottom:70px;">Show finished Mad Lib when user clicks the button</p>
+	<p class="fragment fade-in green" data-fragment-index="5">...last piece of the puzzle!</p>
+</section>
+
+<section>
+	<p class="pink">Your code in <code>madlibs.js</code> should look like this so far:</p>
+<pre><code class="javascript" data-trim contenteditable="">
+// Get the values of HTML input boxes
+// with the IDs "noun", "verb", and "adjective"
+var noun = document.getElementById('noun').value;
+var verb = document.getElementById('verb').value;
+var adjective = document.getElementById('adjective').value;
+
+// For testing purposes, display the values in the console
+console.log(noun, verb, adjective);
+</code></pre>
+</section>
+
+<section>
+	<h2 style="font-size:1.4em;">Challenge: Working Mad Libs, Part 1</h2>
+	<ol class="medium-margin">
+		<li>In <code>madlibs.js</code>, take all the code (shown on the last slide) and put it all inside a new function called <code>showMadLib</code> that takes no parameters.</li>
+		<li>Define another function called <code>createMadLib</code>, which takes 3 parameters (noun, verb, and adjective), combines them into a sentence, and returns the combined string as output.</li>
+		<li>Inside your <code>showMadLib</code> function, create a variable called <code>madLib</code> and set its value equal to the result of calling <code>createMadLib</code> with <code>noun</code>, <code>verb</code>, and <code>adjective</code> as its arguments.</li>
+	</ol>
+</section>
+
+<section>
+	<h2>Part 1 Solution</h2>
+<pre style="font-size:0.5em;width:100%;"><code class="javascript" data-trim contenteditable="">
+function showMadLib() {
+	// Get the values of HTML input boxes with the IDs "noun", "verb", and "adjective"
+	var noun = document.getElementById('noun').value;
+	var verb = document.getElementById('verb').value;
+	var adjective = document.getElementById('adjective').value;
+
+	// For testing purposes, display the values in the console
+	console.log(noun, verb, adjective);
+
+	// Make the Mad Lib and save it to a variable
+	var madLib = createMadLib(noun, verb, adjective);
+}
+
+function createMadLib(noun, verb, adjective) {
+	return 'Bob robbed the bank with a deadly ' + noun + ', but then his ' + adjective + ' girlfriend ' + verb + ' the cash!';
+}
+</code></pre>
+</section>
+
+<section>
+	<h2 style="font-size:1.4em;">Challenge: Working Mad Libs, Part 2</h2>
+	<ol class="medium-margin">
+		<li>Inside your <code>showMadLib</code> function (at the end of it), use <code>document.getElementById</code> to create a JavaScript object for the HTML element <code>&lt;div id=&quot;madlib&quot;&gt;&lt;/div&gt;</code></li>
+		<li>Right after that (also inside the showMadLib function), set that object's <code>textContent</code> equal to your finished Mad Lib string.</li>
+	</ol>
+</section>
+
+<section>
+	<h2>Part 2 Solution</h2>
+<pre style="font-size:0.5em;width:100%;"><code class="javascript" data-trim contenteditable="">
+function showMadLib() {
+	// Get the values of HTML input boxes with the IDs "noun", "verb", and "adjective"
+	var noun = document.getElementById('noun').value;
+	var verb = document.getElementById('verb').value;
+	var adjective = document.getElementById('adjective').value;
+
+	// For testing purposes, display the values in the console
+	console.log(noun, verb, adjective);
+
+	// Make the Mad Lib and save it to a variable
+	var madLib = createMadLib(noun, verb, adjective);
+
+	// Make a JavaScript object for the HTML element with id "madlib"
+	var madLibContainer = document.getElementById('madlib');
+
+	// and change its contents to contain our madLib string
+	madLibContainer.textContent = madLib;
+}
+
+function createMadLib(noun, verb, adjective) {
+	return 'Bob robbed the bank with a deadly ' + noun + ', but then his ' + adjective + ' girlfriend ' + verb + ' the cash!';
+}
+</code></pre>
+</section>
+
+<section>
+	<h2 style="font-size:1.4em;margin-top:-50px;">Challenge: Working Mad Libs, Part 3</h2>
+	<ol class="medium-margin">
+		<li>Look inside your <code>index.html</code> file and identify the ID of the submit button.</li>
+		<li>At the very end of <code>madlibs.js</code> (not inside any functions), use <code>document.getElementById</code> again to create a JavaScript object for the submit button.</li>
+		<li>Right below that, set an event listener on the button! You can just copy-paste our event listener example code, but replace <code>document</code> with your button object.</li>
+		<li>Make sure that the second argument of your event listener should be the name of your custom function <code>showMadLib</code>.</li>
+		<li>Save the file and test it out!</li>
+	</ol>
+</section>
+
+<section>
+	<h2>Part 3 Solution</h2>
+<pre style="font-size:0.5em;width:100%;"><code class="javascript" data-trim contenteditable="">
+// *** PART 3 CODE (this can be at the top of the file or at the bottom, doesn't matter):
+
+// Make a JavaScript object for the HTML submit button
+var submitButton = document.getElementById('submit');
+
+// When submit button is clicked, run the showMadLib function
+submitButton.addEventListener('click', showMadLib);
+
+// *** THE REST IS THE SAME AS SOLUTION 2:
+
+function showMadLib() {
+	// Get the values of HTML input boxes with the IDs "noun", "verb", and "adjective"
+	var noun = document.getElementById('noun').value;
+	var verb = document.getElementById('verb').value;
+	var adjective = document.getElementById('adjective').value;
+
+	// For testing purposes, display the values in the console
+	console.log(noun, verb, adjective);
+
+	// Make the Mad Lib and save it to a variable
+	var madLib = createMadLib(noun, verb, adjective);
+
+	// Make a JavaScript object for the HTML element with id "madlib"
+	var madLibContainer = document.getElementById('madlib');
+
+	// and change its contents to contain our madLib string
+	madLibContainer.textContent = madLib;
+}
+
+function createMadLib(noun, verb, adjective) {
+	return 'Bob robbed the bank with a deadly ' + noun + ', but then his ' + adjective + ' girlfriend ' + verb + ' the cash!';
+}
+</code></pre>
+</section>
+
+<section>
+	<h2>Congrats! You're mastering JavaScript!</h2>
+	<p>Let's add one final touch to make the Mad Lib prettier...</p>
+</section>
+
+<section>
+	<h2>textContent vs innerHTML</h2>
+
+	<p>The <code>textContent</code> property lets us change the <em>plain</em> text inside an HTML element, but the <code>innerHTML</code> property lets us use HTML as well as text!</p>
+
+<pre><code class="javascript" data-trim contenteditable="">
+// Copy this code, go to Google.com again,
+// open your console and run this code:
+document.body.innerHTML = '&lt;h1&gt;Hello world!&lt;/h1&gt; &lt;img src=&quot;http://i2.kym-cdn.com/photos/images/original/000/114/779/0002.gif&quot;&gt;';
+</code></pre>
+
+<p>Fun, isn't it?? Just don't abuse your new super powers!</p>
+
+</section>
+
+<section>
+	<h2 style="margin-top:-50px;">Prettify your Mad Lib</h2>
+
+	<p class="small" style="margin-bottom:40px;">In your <code>madlibs.js</code> file, replace <code>madLibContainer.textContent</code> with <code>madLibContainer.innerHTML</code>.</p>
+
+	<p class="small">Then surround the noun, verb, and adjective in your Mad Lib string with <code>&lt;span class=&quot;fill&quot;&gt;&lt;/span&gt;</code> HTML tags like this:</p>
+
+<pre><code class="javascript" data-trim contenteditable="">
+function createMadLib(noun, verb, adjective) {
+	return 'Bob robbed the bank with a deadly
+	<span class="fill">' + noun + '</span>,
+	 but then his <span class="fill">' + adjective
+	  + '</span> girlfriend <span class="fill">'
+	 + verb + '</span> the cash!';
+}
+</code></pre>
+
+<p class="small">Save it, open <code>index.html</code> in your browser again, and try it out! Now it's using the custom CSS in your <code>style.css</code> file!</p>
+
+</section>
+
+<section>
+	<h2>Let's learn more stuff!</h2>
+</section>
+<section>
+					<h3>Numbers</h3>
+					<p>Variables can be numbers, either integers or floats (decimals).</p>
+<pre><code>
+var numberOfKittens = 5;
+var cutenessRating = 9.6;
+</code></pre>
+					<p>The browser will automatically convert integers to floats if needed</p>
+				</section>
+
+				<section>
+					<h3>Arithmetic Operators</h3>
+					<p>Once you have numbers, you can do math with them!</p>
+<pre><code>var numberOfKittens = 5;
+var numberOfPuppies = 4;
+var numberOfAnimals = numberOfKittens + numberOfPuppies;
+</code></pre>
+				</section>
+
+				<section>
+					<h3>Arithmetic Operators</h3>
+					<table>
+						<thead>
+							<tr>
+							 <th>Example</th>
+							 <th>Name</th>
+							 <th>Result</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+							 <td>-a</td>
+							 <td>Negation</td>
+							 <td>Opposite of a.</td>
+							</tr>
+							<tr>
+							 <td>a + b</td>
+							 <td>Addition</td>
+							 <td>Sum of a and b.</td>
+							</tr>
+							<tr>
+							 <td>a - b</td>
+							 <td>Subtraction</td>
+							 <td>Difference of a and b.</td>
+							</tr>
+							<tr>
+							 <td>a * b</td>
+							 <td>Multiplication</td>
+							 <td>Product of a and b.</td>
+							</tr>
+							<tr>
+							 <td>a / b</td>
+							 <td>Division</td>
+							 <td>Quotient of a and b.</td>
+							</tr>
+							<tr>
+							 <td>a % b</td>
+							 <td>Modulus</td>
+							 <td>Remainder of a divided by b.</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+
+				<section>
+					<h3>Let's Develop It!</h3>
+					<p>Create two variables and try some arithmetic operators. Don't forget to display your results!</p>
+				</section>
+
+
+<!--
+
+CLASS 2 SLIDES
+
+-->
+
+<section>
+					<h3>Review</h3>
+					<p>In this code, spot the comments, variables, operator, function, argument, and return value.</p>
+					<pre><code>function calculateTip(total) {
+	var tipPercent = 0.15; //Can be changed
+	return (total * tipPercent);
+}
+
+var billPreTip = 10;
+var billTip = calculateTip(billPreTip);
+var receipt = 'Meal: ' + billPreTip + ' Tip: ' + billTip +
+' Total: ' + (billPreTip + billTip);
+console.log(receipt);</code></pre>
+				</section>
+
+				<section>
+					<h3>Variable Scope</h3>
+					<p>The scope of a variable is how long the computer will remember it.</p>
+				</section>
+
+				<section>
+					<h3>Global Scope</h3>
+					<p>A variable declared outside a function has a <span class="yellow">global</span> scope and can be accessed anywhere, even in a function.</p>
+					<pre><code>var awesomeGroup = 'Girl Develop It'; //Global scope
+
+function whatIsAwesome() {
+	console.log (awesomeGroup + ' is pretty awesome.'); //Will work
+}
+
+whatIsAwesome();</code></pre>
+				</section>
+
+				<section>
+					<h3>Local Scope</h3>
+					<p>A variable declared within a function has a <span class="yellow">local</span> scope and can only be accessed within that function.</p>
+					<pre><code>function whatIsAwesome() {
+	var awesomeGroup = 'Girl Develop It'; //Local scope
+	console.log ('I made a variable called awesomeGroup with a value of ' + awesomeGroup); //Will work
+}
+
+whatIsAwesome();
+console.log (awesomeGroup + ' is pretty awesome.'); //Won't work</code></pre>
+				</section>
+
+				<section>
+					<h3>Boolean Variables</h3>
+					<p>Boolean variables represent the logical values True and False</p>
+					<pre><code>var catsAreBest = true;
+var dogsRule = false;</code></pre>
+					<p>If you try to use another variable as a boolean, JavaScript will guess. The number 0, the empty string '', undefined, and null are considered false, everything else reads as true.</p>
+				</section>
+
+				<section>
+					<h3>The if statement</h3>
+					<p>Use <code>if</code> to decide which lines of code to execute, based on a condition.</p>
+					<pre><code>if (condition) {
+	// statements to execute
+}</code></pre>
+					<pre><code>var bananas = 5;
+if (bananas &gt; 0) {
+	console.log ('You have some bananas!');
+}</code></pre>
+				</section>
+
+				<section>
+					<h3 style="margin-top:-100px;">Comparison Operators</h3>
+					<table class="smalltext">
+						<thead>
+							<tr>
+								<th width="150px">Example</th>
+								<th width="250px">Name</th>
+								<th>Result</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+							 <td>a == b</td>
+							 <td>Equal</td>
+							 <td><strong><code>TRUE</code></strong> if a is equal to b (can be different types).</td>
+							</tr>
+							<tr>
+							 <td>a === b</td>
+							 <td>Identical</td>
+							 <td>
+								<strong><code>TRUE</code></strong> if a is equal to b, and the same type. </td>
+							</tr>
+							<tr>
+							 <td>a != b</td>
+							 <td>Not equal</td>
+							 <td><strong><code>TRUE</code></strong> if a is not equal to b (can be different types).</td>
+							</tr>
+							<tr>
+							 <td>a !== b</td>
+							 <td>Not identical</td>
+							 <td>
+								<strong><code>TRUE</code></strong> if a is not equal to b, or they are not the same type.</td>
+							</tr>
+							<tr>
+							 <td>a &lt; b</td>
+							 <td>Less than</td>
+							 <td><strong><code>TRUE</code></strong> if a is strictly less than b.</td>
+							</tr>
+							<tr>
+							 <td>a &gt; b</td>
+							 <td>Greater than</td>
+							 <td><strong><code>TRUE</code></strong> if a is strictly greater than b.</td>
+							</tr>
+							<tr>
+							 <td>a &lt;= b</td>
+							 <td>Less than or equal to </td>
+							 <td><strong><code>TRUE</code></strong> if a is less than or equal to b.</td>
+							</tr>
+							<tr>
+							 <td>a &gt;= b</td>
+							 <td>Greater than or equal to </td>
+							 <td><strong><code>TRUE</code></strong> if a is greater than or equal to b.</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+
+				<section>
+					<h3>Watch out!</h3>
+					<p>Don't mix up <code>=</code> and <code>==</code></p>
+				</section>
+
+				<section>
+					<h3>Let's Develop It!</h3>
+					<p>Make a variable called "temperature." Write some code that tells you to put on a coat if it is below 50 degrees.</p>
+				</section>
+
+				<section>
+					<h3>The if/else statement</h3>
+					<p>Use else to provide an alternate set of instructions.</p>
+					<pre><code>var age = 28;
+if (age &gt;= 16) {
+	console.log ('Yay, you can drive!');
+} else {
+	console.log ('Sorry, but you have ' + (16 - age) + ' years until you can drive.');
+}</code></pre>
+				</section>
+
+				<section>
+					<h3>The if/else if/else statement</h3>
+					<p>If you have multiple conditions, you can use else if.</p>
+					<pre><code>var age = 20;
+if (age &gt;= 35) {
+	console.log('You can vote AND hold any place in government!');
+} else if (age &gt;= 25) {
+	console.log('You can vote AND run for the Senate!');
+} else if (age &gt;= 18) {
+	console.log('You can vote!');
+} else {
+	console.log('You can\'t vote, but you can still write your representatives.');
+}</code></pre>
+				</section>
+
+				<section>
+					<h3>Let's Develop It!</h3>
+					<p>Modify your "wear a coat" code for these conditions:</p>
+					<ol>
+						<li>If it is less than 50 degrees, wear a coat.</li>
+						<li>If it is less than 30 degrees, wear a coat and a hat.</li>
+						<li>If it is less than 0 degrees, stay inside.</li>
+						<li>Otherwise, wear whatever you want.</li>
+					</ol>
+				</section>
+
+				<section>
+					<h3>Logical Operators</h3>
+					<table>
+						<thead>
+							<tr>
+								<th width="200px">Example</th>
+								<th width="150px">Name</th>
+								<th>Result</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>a &amp;&amp; b</td>
+								<td>And</td>
+								<td><strong><code>TRUE</code></strong> if both a and b are <strong><code>TRUE</code></strong>.</td>
+							</tr>
+							<tr>
+								<td>a || b</td>
+								<td>Or</td>
+								<td><strong><code>TRUE</code></strong> if either a or b is <strong><code>TRUE</code></strong>.</td>
+							</tr>
+							<tr>
+								<td>! a</td>
+								<td>Not</td>
+								<td><strong><code>TRUE</code></strong> if a is not <strong><code>TRUE</code></strong>.</td>
+							</tr>
+						 </tbody>
+					</table>
+				</section>
+
+				<section>
+					<h3>Using logical operators</h3>
+					<p>You can use these operators to combine conditions.</p>
+					<pre><code>var bananas = 5;
+if (bananas &gt;=2 &amp;&amp; bananas &lt;7) {
+	console.log ('You have a reasonable number of bananas');
+} else {
+	console.log ('Check your banana supply');
+}</code></pre>
+				</section>
+
+				<section>
+					<h3>Let's Develop It!</h3>
+					<p>Add a logical operator to your what to wear program.</p>
+				</section>
+
+				<section>
+					<h3>While loops</h3>
+					<p>While will repeat the same code over and over until some condition is met.</p>
+					<pre><code>var bottlesOfBeer = 99;
+while (bottlesOfBeer &gt;= 1) {
+	console.log (bottlesOfBeer + ' bottles of beer on the wall');
+	bottlesOfBeer = bottlesOfBeer - 9;
+}</code></pre>
+				</section>
+
+				<section>
+					<h3>Infinite Loops</h3>
+					<p>Make sure something changes in the loop, or your loop will go on forever...</p>
+				</section>
+
+				<section>
+					<h3>For loops</h3>
+					<p>For loops are very similar, but you declare a counter in the statement.</p>
+					<pre><code>//will count 1 to 10
+for (var i = 1; i &lt;= 10; i++) {
+	console.log (i);
+}</code></pre>
+				</section>
+
+				<section>
+					<h3>Loops and logic</h3>
+					<p>You can add other statements or logical operators inside the loops.</p>
+					<pre><code>//Count from 1 to 50
+for (var i = 1; i &lt;= 50; i++) {
+	console.log (i);
+	//Says 'Buzz' after multiples of three
+	if (i % 3 == 0) {
+		console.log (' Buzz');
+	}
+	//Says 'Bang' after multiples of five
+	if (i % 5 == 0) {
+		console.log (' Bang');
+	}
+}</code></pre>
+				</section>
+
+				<section>
+					<h3>Break</h3>
+					<p>To exit a loop, use the break statement.</p>
+					<pre><code>//Count from 100 to 200
+for (var i = 100; i &lt;= 200; i++) {
+	console.log('Testing ' + i);
+	//Stop at the first multiple of 7
+	if (i % 7 == 0) {
+		console.log('Found it! ' + i);
+		break;
+	}
+}</code></pre>
+				</section>
+
+				<section>
+					<h3>Let's Develop It!</h3>
+					<p>Write a loop that gives you the 9's times table,<br /> from 9 x 1 = 9 to 9 x 12 = 108.</p>
+					<p>Finish early? Try using a loop inside a loop to write all the times tables, from 1 to 12.</p>
+				</section>
+
+				<section>
+					<h3>Arrays</h3>
+					<p>Arrays are ordered lists of values.</p>
+					<pre><code>var arrayName = [element0, element1, ...];</code></pre>
+					<p>You can put different types of data into an array.</p>
+					<pre><code>var rainbowColors = ['Red', 'Orange', 'Yellow', 'Green',
+'Blue', 'Indigo', 'Violet'];
+var lotteryNumbers = [33, 72, 64, 18, 17, 85];
+var myFavoriteThings = ['Broccoli', 1024, 'Sherlock'];</code></pre>
+				</section>
+
+				<section>
+					<h3>Array Length</h3>
+					<p>The length property tells you how many things are in an array</p>
+					<pre><code>var rainbowColors = ['Red', 'Orange', 'Yellow', 'Green',
+'Blue', 'Indigo', 'Violet'];
+console.log(rainbowColors.length);</code></pre>
+				</section>
+
+				<section>
+					<h3>Using Arrays</h3>
+					<p>You can access items with "bracket notation" by using the position of the object you want. Programmers start counting at zero.</p>
+					<pre><code>var rainbowColors = ['Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Indigo', 'Violet'];
+var firstColor = rainbowColors[0];
+var lastColor = rainbowColors[6];</code></pre>
+				</section>
+
+				<section>
+					<h3>Changing arrays</h3>
+					<p>You can use bracket notation to change an item in an array</p>
+					<pre><code>var myFavoriteThings = ['Broccoli', 1024, 'Sherlock'];
+myFavoriteThings[0] = 'Asparagus';</code></pre>
+				</section>
+
+				<section>
+					<h3>Expanding arrays</h3>
+					<p>Arrays do not have a fixed length. You can use "push" to add something to an array.</p>
+					<pre><code>var myFavoriteThings = ['Broccoli', 1024, 'Sherlock'];
+myFavoriteThings.push('Dancing');</code></pre>
+				</section>
+
+				<section>
+					<h3>Let's Develop It!</h3>
+					<p>Create an array of your favorite foods. Echo a few values onto your screen.</p>
+				</section>
+
+				<section>
+					<h3>Iterating through arrays</h3>
+					<p>Use a for loop to easily process each item in an array.</p>
+					<pre><code>var rainbowColors = ['Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Indigo', 'Violet'];
+for (var i = 0; i &lt; rainbowColors.length; i++) {
+	console.log(rainbowColors[i]);
+}</code></pre>
+				</section>
+
+				<section>
+					<h3>Let's Develop It!</h3>
+					<p>Use a loop to make a list of all your favorite foods.</p>
+				</section>
+
+				<section>
+					<h3>Resources</h3>
+					<ul>
+						<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide" target="_blank">JavaScript Guide</a>, from the Mozilla Developers Network.</li>
+						<li><a href="http://www.codecademy.com/tracks/javascript" target="_blank">Code Academy</a>, with interactive JavaScript lessons to help you review.</li>
+					</ul>
+				</section>
+
+
+<!--
+
+CLASS 3 SLIDES
+
+-->
+
+<section>
+					<h3>Objects</h3>
+					<p>Objects let us store a collection of properties.</p>
+<pre><code>var objectName = {
+	propertyName: propertyValue,
+	propertyName: propertyValue,
+	...
+};</code></pre>
+<pre class="fragment"><code>var aboutMe = {
+	hometown: 'Corry, PA',
+	hair: 'Blond',
+	likes: ['coding', 'knitting', 'chocolate'],
+	birthday: {month: 3, day: 27}
+};</code></pre>
+				</section>
+
+				<section>
+					<h3>Let's Develop It!</h3>
+					<p>Let's work together to create some code that describes the properties of some safari animals.</p>
+				</section>
+
+				<section>
+					<h3>Accessing Objects</h3>
+					<p>You can retrieve values using "dot notation"</p>
+<pre><code>var aboutMe = {
+	hometown: 'Corry, PA',
+	hair: 'Blond'
+};
+var myHometown = aboutMe.hometown;</code></pre>
+					<p>Or using "bracket notation" (like arrays)</p>
+<pre><code>var myHair = aboutMe['hair'];</code></pre>
+				</section>
+
+				<section>
+					<h3>Changing Objects</h3>
+					<p>You can use dot or bracket notation to change properties</p>
+<pre><code>var aboutMe = {
+	hometown: 'Corry, PA',
+	hair: 'Blond'
+};
+aboutMe.hair = 'pink';</code></pre>
+					<p>Add new properties</p>
+<pre><code>aboutMe.eyes = 'blue';</code></pre>
+					<p>Or delete them</p>
+<pre><code>delete aboutMe.eyes;</code></pre>
+				</section>
+
+				<section>
+					<h3>Arrays of Objects</h3>
+					<p>Since arrays can hold any data type, they can also hold objects</p>
+<pre><code>var myCats = [
+	{name: 'Mabel',
+	age: '6'},
+	{name: 'Ollie',
+	age: '2'}
+];
+
+for (var i = 0; i &lt; myCats.length; i++) {
+	var myCat = myCats[i];
+	console.log(myCat.name + ' is ' + myCat.age + ' years old.');
+}</code></pre>
+				</section>
+
+				<section>
+					<h3>Arrays of Objects</h3>
+					<p>Just like other data types, objects can be passed into functions:</p>
+<pre><code>var mabelTheCat = {
+	age: 6,
+	furColor: 'grey',
+	likes: ['catnip', 'naps', 'snacks'],
+	birthday: {month: 11, day: 25, year: 2009}
+}
+
+function describeCat(cat) {
+	console.log('This cat is ' + cat.age + ' years old with ' + cat.furColor + ' fur.');
+}
+
+describeCat(mabelTheCat);</code></pre>
+				</section>
+
+				<section>
+					<h3>Let's Develop It!</h3>
+					<p>Create an object to hold information on your favorite recipe. It should have properties for <code>recipeTitle</code> (a string), <code>servings</code> (a number), and <code>ingredients</code> (an array of strings).</p>
+					<p>Try displaying some information about your recipe.</p>
+					<p>Bonus: Create a loop to list all the ingredients.</p>
+				</section>
+
+				<section>
+					<h3>Object Methods</h3>
+					<p>Objects can also hold functions.</p>
+<pre><code>var mabelTheCat = {
+	age: 6,
+	furColor: 'grey',
+	meow: function() {
+		console.log('meowww');
+	},
+	eat: function(food) {
+		console.log('Yum, I love ' + food);
+	},
+};</code></pre>
+					<p>Call object methods using dot notation:</p>
+<pre><code>mabelTheCat.meow();
+mabelTheCat.eat('brown mushy stuff');</code></pre>
+				</section>
+
+				<section>
+					<h3>Let's Develop It!</h3>
+					<p>Let's work together to add some methods to our code that describes the safari animals.</p>
+				</section>
+
+				<section>
+					<h3>Built-in objects</h3>
+					<p>JS provides several built-in objects:</p>
+					<ul>
+						<li><code><a target="_blank" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array">Array</a></code></li>
+						<li><code><a target="_blank" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code></li>
+						<li><code><a target="_blank" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number">Number</a></code></li>
+						<li><code><a target="_blank" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String">String</a></code></li>
+						<li><code><a target="_blank" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/RegExp">RegExp</a></code></li>
+						<li><code><a target="_blank" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date">Date</a></code></li>
+						<li><code><a target="_blank" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Math">Math</a></code></li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Questions about objects?</h3>
+				</section>
 
 			</div>
   		<footer>

@@ -1,0 +1,59 @@
+<section>
+	<p>Let's look at some code!</p>
+	<h2>JavaScript Event Listeners</h2>
+
+</section>
+
+<section>
+	<h2 style="font-size:1.5em;margin-top:-40px;">Breakdown of the<br> JavaScript Event Listener</h2>
+
+<pre style="font-size:1em;width:100%;" contenteditable="">
+<span class="fragment highlight-current-red" data-fragment-index="0">document</span>.<span class="fragment highlight-current-red" data-fragment-index="1">addEventListener</span>(<span class="fragment highlight-current-red" data-fragment-index="2">'click'</span>, <span class="fragment highlight-current-red" data-fragment-index="3">myFunction</span>);
+
+function <span class="fragment highlight-current-red" data-fragment-index="3">myFunction</span>(<span class="fragment highlight-current-red" data-fragment-index="4">event</span>) {
+
+	console.log(event);
+
+}
+</pre>
+<!--
+	***	QUESTION FOR EVERYONE: what does this code do? when does it run?
+-->
+		<p class="fragment fade-out steps" data-fragment-index="0">There are <strong class="pink">five parts</strong> to a standard JavaScript<br> event listener</p>
+
+		<p class="fragment current-visible steps" data-fragment-index="0">
+			<strong class="pink">Part 1: Where the events will happen</strong> <br>(in this case, the whole HTML document object)
+		</p>
+
+		<p class="fragment current-visible steps" data-fragment-index="1">
+			<strong class="pink">Part 2: Start listening for events</strong> <br>(with JavaScript's built-in addEventListener method)
+		</p>
+
+		<p class="fragment current-visible steps" data-fragment-index="2">
+			<strong class="pink">Part 3: The type of event</strong> <br>(see <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/Events">this reference list</a> or make up your own)
+		</p>
+
+		<p class="fragment current-visible steps" data-fragment-index="3">
+			<strong class="pink">Part 4: The name of the function to run<br> when the event happens</strong> <br>(known as the "callback" function)
+		</p>
+
+		<p class="fragment current-visible steps" data-fragment-index="4">
+			<strong class="pink">Part 5: This parameter receives an object with info about the event</strong> <br>(different events give you different information)
+		</p>
+
+		<p class="fragment current-visible steps" data-fragment-index="5">
+			<strong class="pink">Let's try it!</strong> Open your console and run this code, then click on the page and check the console again.
+		</p>
+
+</section>
+
+<section>
+	<h2>Behold! Event data!</h2>
+	<p style="margin-bottom:20px;">
+		You should see a MouseEvent object in the console. Click to expand the data:
+	</p>
+	<img src="img/console-expand-object.gif" width="600">
+	<p style="margin-top:20px;">
+		Each event has different properties, which you can use to control all sorts of cool things!<br> But more on that later.
+	</p>
+</section>

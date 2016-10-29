@@ -134,6 +134,50 @@ div.left-align{
 	color: #1b91ff;
 }
 
+*********************************************
+* CUSTOM STYLES
+*********************************************/
+
+/* Using "current-visible steps" or "fade-out steps"
+to completely hide gaps left over from hidden fragments.
+
+Example for first fragment to be visible on a slide:
+<FIRST class="fragment fade-out steps" data-fragment-index="0">
+<SECOND class="fragment current-visible steps" data-fragment-index="0">
+*/
+
+.reveal .slides section .fragment.steps {
+	transition: none;
+}
+
+.reveal .slides section .fragment.steps.current-visible:not(.current-fragment) {
+	display: none;
+	height:0px;
+	line-height: 0px;
+	font-size: 0px;
+}
+
+.reveal .slides section .fragment.current-visible.visible:last-child {
+	opacity: 1;
+	visibility: visible;
+}
+
+.reveal .slides section .fragment.steps.current-visible.visible:last-child {
+	opacity: 1;
+	visibility: visible;
+	height: auto;
+	line-height: inherit;
+	font-size: inherit;
+	display: inherit;
+}
+
+.reveal .slides section .fragment.steps.fade-out.visible {
+	display: none;
+	height:0px;
+	line-height: 0px;
+	font-size: 0px;
+}
+
 /*********************************************
  * HEADERS
  *********************************************/

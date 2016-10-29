@@ -160,7 +160,7 @@ var myElement = document.getElementById('test');
 <section>
 	<h2 style="font-size:1.3em;">Let's try <code>document.getElementById</code>!</h2>
 
-	<p id="changeme" style="font-weight:bold;border:4px solid black;padding:20px; height:120px; width: 200px; margin:0 20px 40px 0;float:left;">Change me!</p>
+	<p id="changebox" style="font-weight:bold;border:4px solid black;padding:20px; height:120px; width: 200px; margin:0 20px 40px 0;float:left;">Change me!</p>
 
 	<div style="float:right">
 		<p>The HTML for the box on this page is:
@@ -183,25 +183,73 @@ box.textContent = 'Voila! JavaScript magic!';
 </section>
 
 <section>
-	<h2>TODO: Challenge: get each input element and put text into it</h2>
-	<ul>
-		<li>look inside the index.html file we made earlier, find the info you need, then in the js file use these new functions!</li>
-	</ul>
+	<h2 style="font-size:1.3em;">Now try it again, but with an input box!</h2>
+
+	<input id="changeinput" value="Change me!" style="margin:30px;padding:10px;width:220px;font-size:1em;float:left;">
+
+	<div style="float:right">
+		<p>The HTML for this input box:
+		<pre style="margin-top:20px;"><code class="html">&lt;input id=&quot;changeinput&quot; value=&quot;Change me!&quot;&gt;</code></pre></p>
+	</div>
+
+	<p style="clear:both;">Close and reopen your browser console, then try:</p>
+
+<pre style="margin-top:20px;"><code class="javascript" data-trim contenteditable="">
+// Identify the input box by its ID:
+var input = document.getElementById('changeinput');
+
+// Notice that its text content is empty!
+console.log(input.textContent);
+
+// We need to use the value property instead:
+console.log(input.value);
+
+// Change its value:
+input.value = 'new value!';
+</code></pre>
+
 </section>
 
 <section>
-	<h2>TODO: The value property</h2>
-	<ul>
-		<li>JS + HTML is messy, so there's a <em>different</em> property for getting the input that a user provides in a form element: it's called value!</li>
-		<li>code example</li>
-		<li>challenge: get the value of the form elements in our mad lib app... oh, but it doesn't work! why? the code runs immediately, before the user has typed anything! we need to control WHEN this code runs. any guesses on when it should run?</li>
-	</ul>
+	<h2>textContent vs value</h2>
+
+	<p style="margin-bottom:40px;">So just remember: you need to use the <code>value</code> property to get the text inside any form elements.</p>
+	<p>For pretty much all other types of HTML elements, the <code>textContent</code> property will work fine.</p>
 </section>
 
 <section>
-	<h2>TODO: event listeners</h2>
-	<ul>
-		<li>addEventListener, simplified intro. its 2nd parameter requires.. another function! like whooa!</li>
-		<li>challenge: write a function that saves the values from the input boxes into three new variables, and use an event listener on the submit button to run that function when a user clicks the button!</li>
-	</ul>
+	<h2 style="font-size:1.4em;">Pair Programming Challenge:<br> Get the value of each Mad Lib input</h2>
+	<p style="margin-bottom:40px;"><span class="bold">1)</span> Look inside your <code>index.html</code> file and find the IDs of each input box; you're gonna need them!</p>
+
+	<p style="margin-bottom:40px;"><span class="bold">2)</span> Create a JavaScript variable containing the value of each input box in your <code>madlibs.js</code> file by using the <code>getElementById</code> method of the <code>document</code> object.</p>
+
+	<p class="small">Be sure to look through the previous slides to review what we've learned so far. And don't be afraid to experiment and break stuff; that's the best way to learn!</p>
+
+</section>
+
+<section>
+	<h2>Solution</h2>
+
+<pre><code class="javascript" data-trim contenteditable="">
+// Get the values of HTML input boxes
+// with the IDs "noun", "verb", and "adjective"
+var noun = document.getElementById('noun').value;
+var verb = document.getElementById('verb').value;
+var adjective = document.getElementById('adjective').value;
+
+// For testing purposes, display the values in the console
+console.log(noun, verb, adjective);
+</code></pre>
+
+	<p>Save your <code>madlibs.js</code> file, open <code>index.html</code> in the browser, write some text in the input boxes, and then open the console!</p>
+</section>
+
+<section>
+	<h2>It didn't work! Why not?</h2>
+
+	<p class="fragment" style="margin-bottom:40px;">Oh yeah, our code runs as soon as we go to our web page (<code>index.html</code>), before we can type anything into the input boxes! Order of events matters!</p>
+
+	<h3 class="fragment" style="margin-bottom:40px;">When should our code run?</h3>
+
+	<p class="fragment" style="">When the user clicks the button.<br> Let's make it happen!</p>
 </section>
